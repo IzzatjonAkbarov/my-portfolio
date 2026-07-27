@@ -1,0 +1,123 @@
+{
+  "Navigation": {
+    "home": "Bosh sahifa",
+    "about": "Men haqimda",
+    "experience": "Tajriba",
+    "projects": "Loyihalar",
+    "fun": "Qiziqishlar",
+    "contact": "Aloqa"
+  },
+  "Hero": {
+    "greeting": "Salom, men",
+    "name": "Izzatjon Akbarov",
+    "title": "Frontend Dasturchi",
+    "summary": "React.js, Next.js va TypeScript texnologiyalarida yuqori samarali hamda kengaytiriladigan veb-ilovalar yaratishga ixtisoslashgan Frontend Dasturchi. Toza kod, zamonaviy UI va foydalanuvchi qulayligiga alohida e'tibor qarataman.",
+    "downloadCV": "CV yuklash",
+    "contactMe": "Bog'lanish",
+    "role": "Frontend Dasturchi"
+  },
+  "About": {
+    "title": "Men Haqimda",
+    "description": "Men Toshkent shahrida faoliyat yurituvchi ta'sirchan Frontend Dasturchiman. ERP va LMS platformalarini yaratish bo'yicha amaliy tajribaga ega bo'lib, TypeScript, Next.js, Tailwind CSS va Shadcn UI yordamida modulli, tezkor foydalanuvchi interfeyslarini ishlab chiqaman. Redux, Zustand va React Query orqali murakkab ma'lumotlar oqimini samarali boshqaraman.",
+    "skillsTitle": "Texnologik Сtek",
+    "languages": "Til Bilish Darajasi",
+    "uzbek": "O'zbek tili — Ona tili",
+    "english": "Ingliz tili — IELTS 6.5",
+    "russian": "Rus tili — Mukammal"
+  },
+  "Experience": {
+    "title": "Tajriba va Rivojlanish",
+    "workTitle": "Ish Tajribasi",
+    "educationTitle": "Ta'lim",
+    "awardsTitle": "Yutuqlar va Mukofotlar",
+    "keyPages": "Yaratilgan Panellar",
+    "exp1": {
+      "company": "Forward School ERP",
+      "role": "Frontend Dasturchi",
+      "period": "Apr 2025 — Avgust 2025",
+      "description": "Til o'rgatish markazi uchun to'liq ERP tizimini ishlab chiqdim. Admin, Direktor, O'qituvchi va Talabalar uchun himoyalangan marshrutlar va Recharts grafiklariga ega interaktiv boshqaruv panellarini yaratdim.",
+      "pages": "Admin, CEO, O'qituvchi, Talaba panellari"
+    },
+    "exp2": {
+      "company": "EduCoin LMS Platformasi",
+      "role": "Frontend Dasturchi",
+      "period": "Dek 2025 — Fev 2026",
+      "description": "Geymifikatsiya elementlariga ega LMS ta'lim tizimini yaratdim. Shadcn UI va Zustand yordamida rollarga asoslangan autentifikatsiya va qulay interfeys tizimini joriy qildim.",
+      "pages": "Admin, CEO, O'qituvchi, Talaba panellari"
+    },
+    "edu1": {
+      "institution": "Najot Ta'lim",
+      "degree": "Frontend Dasturlash Intensiv Bootkampi",
+      "period": "2024"
+    },
+    "edu2": {
+      "institution": "Toshkent Davlat Iqtisodiyot Universiteti",
+      "degree": "Bakalavr darajasi",
+      "period": "2025"
+    },
+    "award1": "Yangi O'zbekiston yillik marafoni — 1-o'rin (5km 20 daqiqa ichida)",
+    "award2": "Buxoro tungi poygasi — 10km medal sohibi",
+    "award3": "Time Qishki Maktabi — 1 500 nomzod orasidan sara ishtirokchi"
+  },
+  "Projects": {
+    "title": "Tanlangan Loyihalar",
+    "chatty": {
+      "name": "Chatty — Real-vaqt xabar almashinuvi",
+      "description": "WebSocket orqali real-vaqt rejimida tezkor xabar almashish, JWT autentifikatsiya hamda 32 xil rang mavzulariga ega onlayn chat ilovasi.",
+      "features": {
+        "realtime": "Real-Time Chat — WebSocket orqali lahzalik xabar almashish",
+        "auth": "JWT Autentifikatsiya — Xavfsiz sessiya va token boshqaruvi",
+        "themes": "32 Rangli Mavzular — Zamonaviy qorong'i va yorug' presetlar"
+      }
+    },
+    "viewProject": "Loyihani ko'rish",
+    "viewCode": "Manba kodi"
+  },
+  "Fun": {
+    "title": "Qiziqishlar va Tog' Sayohatlari",
+    "subtitle": "Koddanchilar xoliroq vaqtimda tabiat bag'riga oshiqaman, tog' cho'qqilarini zabt etaman hamda marafonlarda qatnashaman.",
+    "peaksTitle": "Tog' Cho'qqilari va Alpinizm",
+    "peaksSubtitle": "Tyon-Shan Tog' Tizmasi",
+    "peaksDesc": "Tog' sayohatlari va alpinizmga ishtiyoqim baland. 3 ta mashhur cho'qqini muvaffaqiyatli zabt etganman: Oqtosh cho'qqisi, Katta Chimyon cho'qqisi (balandligi 3 309m) hamda Kichik Chimyon cho'qqisi.",
+    "marathonsTitle": "Marafon va Yugurish",
+    "marathonsSubtitle": "Uzoq Masofaga Yugurish",
+    "marathonsDesc": "Yangi O'zbekiston yillik marafonida 1-o'rinni egallaganman (5km masofani 20 daqiqadan kam vaqtda). Buxoro tungi poygasida (10km) medal sohibi bo'lganman. Time Qishki Maktabiga 1 500 nomzod orasidan tanlab olinganman.",
+    "passionsTitle": "Algoritmik Masalalar Yechish",
+    "passionsSubtitle": "Doimiy Rivojlanish",
+    "passionsDesc": "LeetCode platformasida algoritmik masalalarni muntazam yechib boraman va zamonaviy veb-texnologiyalarni o'rganaman."
+  },
+  "Contact": {
+    "title": "Bog'lanish",
+    "description": "Yangi frontend vakansiyalari va veb-loyihalar uchun ochiqman. Savol yoki takliflaringiz bo'lsa bemalol murojaat qiling.",
+    "nameLabel": "Ismingiz",
+    "emailLabel": "Elektron pochtangiz",
+    "phoneLabel": "Telefon raqamingiz",
+    "messageLabel": "Xabaringiz",
+    "namePlaceholder": "To'liq ismingizni kiriting",
+    "emailPlaceholder": "iadevcdr@gmail.com",
+    "phonePlaceholder": "90 123 45 67",
+    "messagePlaceholder": "Qanday yordam bera olaman?",
+    "send": "Xabarni Yuborish",
+    "successMessage": "Rahmat! Xabaringiz muvaffaqiyatli yuborildi.",
+    "phone": "Telefon",
+    "email": "Elektron pochta",
+    "location": "Manzil",
+    "social": "Ijtimoiy Tarmoqlar"
+  },
+  "Footer": {
+    "rights": "Barcha huquqlar himoyalangan.",
+    "madeWith": "Yaratilgan"
+  },
+  "Theme": {
+    "light": "Yorug'",
+    "dark": "Qorong'i",
+    "system": "Tizim",
+    "toggle": "Mavzuni o'zgartirish"
+  },
+  "Language": {
+    "en": "English",
+    "uz": "O'zbekcha",
+    "ru": "Русский",
+    "switch": "Tilni o'zgartirish"
+  }
+}

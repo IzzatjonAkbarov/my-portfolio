@@ -1,0 +1,123 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "fun": "Passions",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "greeting": "Hello, I'm",
+    "name": "Izzatjon Akbarov",
+    "title": "Frontend Developer",
+    "summary": "Frontend Developer specializing in building high-performance, scalable web applications with React.js, Next.js, and TypeScript. Passionate about clean code, modern UI systems, and seamless user experiences.",
+    "downloadCV": "Download CV",
+    "contactMe": "Get In Touch",
+    "role": "Frontend Developer"
+  },
+  "About": {
+    "title": "About Me",
+    "description": "I am a detail-oriented Frontend Developer based in Tashkent, Uzbekistan. With hands-on experience in building ERP and LMS platforms, I excel at crafting modular, performant user interfaces using TypeScript, Next.js, Tailwind CSS, and Shadcn UI. I leverage Redux, Zustand, and React Query for complex state and data flow.",
+    "skillsTitle": "Tech Stack",
+    "languages": "Languages Spoken",
+    "uzbek": "Uzbek — Native",
+    "english": "English — IELTS 6.5",
+    "russian": "Russian — Professional"
+  },
+  "Experience": {
+    "title": "Experience & Growth",
+    "workTitle": "Work Experience",
+    "educationTitle": "Education",
+    "awardsTitle": "Achievements & Awards",
+    "keyPages": "Key Delivery Panels",
+    "exp1": {
+      "company": "Forward School ERP",
+      "role": "Frontend Developer",
+      "period": "Apr 2025 — Aug 2025",
+      "description": "Engineered an end-to-end ERP management platform for a language center. Built role-protected routing and interactive dashboards with Recharts for Admin, CEO, Teacher, and Student panels.",
+      "pages": "Admin, CEO, Teacher, Student Dashboards"
+    },
+    "exp2": {
+      "company": "EduCoin LMS Platform",
+      "role": "Frontend Developer",
+      "period": "Dec 2025 — Feb 2026",
+      "description": "Developed a gamified Learning Management System with custom reward logic, role-based authentication, and accessible UI using Shadcn UI and Zustand.",
+      "pages": "Admin, CEO, Teacher, Student Dashboards"
+    },
+    "edu1": {
+      "institution": "Najot Ta'lim",
+      "degree": "Frontend Development Intensive Bootcamp",
+      "period": "2024"
+    },
+    "edu2": {
+      "institution": "Tashkent State University of Economics",
+      "degree": "Bachelor's Degree",
+      "period": "2025"
+    },
+    "award1": "New Uzbekistan Annual Run — 1st Place (5km under 20 mins)",
+    "award2": "Bukhara Night Race — 10km Medal Finisher",
+    "award3": "Time Winter School — Selected among top 1,500 candidates"
+  },
+  "Projects": {
+    "title": "Featured Projects",
+    "chatty": {
+      "name": "Chatty — Real-time Messaging",
+      "description": "A real-time online messaging web application featuring instant WebSocket chat, JWT authentication, and 32 customizable dark/light theme presets.",
+      "features": {
+        "realtime": "Real-Time Chat — Instant bi-directional messaging via WebSocket",
+        "auth": "JWT Authentication — Secured session and token management",
+        "themes": "32 Color Themes — Modern dark, light, and monochrome presets"
+      }
+    },
+    "viewProject": "Live Preview",
+    "viewCode": "Source Code"
+  },
+  "Fun": {
+    "title": "Fun Activities & Hobbies",
+    "subtitle": "When I'm not writing code, I explore nature, conquer mountain peaks, and push my endurance boundaries.",
+    "peaksTitle": "Mountain Climbing & Summits",
+    "peaksSubtitle": "Tien Shan Mountain Range",
+    "peaksDesc": "Passionate mountaineer and outdoor enthusiast. I have successfully summitted 3 iconic mountain peaks: Oqtosh Peak, Big Chimgan Peak (3,309m elevation), and Small Chimgan Peak.",
+    "marathonsTitle": "Marathon & Endurance Running",
+    "marathonsSubtitle": "Long Distance Races",
+    "marathonsDesc": "Won 1st Place in the New Uzbekistan Annual Run (5km under 20 mins) and earned a finisher medal in the Bukhara Night Race (10km). Selected for Time Winter School among 1,500 candidates.",
+    "passionsTitle": "Algorithmic Problem Solving",
+    "passionsSubtitle": "Continuous Learning",
+    "passionsDesc": "Regularly solving data structure and algorithm puzzles on LeetCode, exploring emerging web technologies, and contributing to open-source software."
+  },
+  "Contact": {
+    "title": "Let's Connect",
+    "description": "Currently open to frontend engineering opportunities and web projects. Reach out for collaborations or inquiries.",
+    "nameLabel": "Your Name",
+    "emailLabel": "Your Email",
+    "phoneLabel": "Phone Number",
+    "messageLabel": "Your Message",
+    "namePlaceholder": "Enter your full name",
+    "emailPlaceholder": "iadevcdr@gmail.com",
+    "phonePlaceholder": "90 123 45 67",
+    "messagePlaceholder": "How can I help you?",
+    "send": "Send Message",
+    "successMessage": "Thank you! Your message has been sent successfully.",
+    "phone": "Phone",
+    "email": "Email",
+    "location": "Location",
+    "social": "Social Media"
+  },
+  "Footer": {
+    "rights": "All rights reserved.",
+    "madeWith": "Made with"
+  },
+  "Theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "toggle": "Toggle Theme"
+  },
+  "Language": {
+    "en": "English",
+    "uz": "O'zbekcha",
+    "ru": "Русский",
+    "switch": "Switch Language"
+  }
+}
