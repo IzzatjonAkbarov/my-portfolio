@@ -74,17 +74,38 @@
     "viewCode": "Manba kodi"
   },
   "Fun": {
-    "title": "Qiziqishlar va Tog' Sayohatlari",
-    "subtitle": "Koddanchilar xoliroq vaqtimda tabiat bag'riga oshiqaman, tog' cho'qqilarini zabt etaman hamda marafonlarda qatnashaman.",
-    "peaksTitle": "Tog' Cho'qqilari va Alpinizm",
-    "peaksSubtitle": "Tyon-Shan Tog' Tizmasi",
-    "peaksDesc": "Tog' sayohatlari va alpinizmga ishtiyoqim baland. 3 ta mashhur cho'qqini muvaffaqiyatli zabt etganman: Oqtosh cho'qqisi, Katta Chimyon cho'qqisi (balandligi 3 309m) hamda Kichik Chimyon cho'qqisi.",
-    "marathonsTitle": "Marafon va Yugurish",
-    "marathonsSubtitle": "Uzoq Masofaga Yugurish",
-    "marathonsDesc": "Yangi O'zbekiston yillik marafonida 1-o'rinni egallaganman (5km masofani 20 daqiqadan kam vaqtda). Buxoro tungi poygasida (10km) medal sohibi bo'lganman. Time Qishki Maktabiga 1 500 nomzod orasidan tanlab olinganman.",
-    "passionsTitle": "Algoritmik Masalalar Yechish",
-    "passionsSubtitle": "Doimiy Rivojlanish",
-    "passionsDesc": "LeetCode platformasida algoritmik masalalarni muntazam yechib boraman va zamonaviy veb-texnologiyalarni o'rganaman."
+    "sectionTitle": "Qiziqishlar va Tog' Sayohatlari",
+    "sectionSubtitle": "Baland tog' cho'qqilarini zabt etish, marafonlarda toqat chegaralarini oshirish va tabiat bag'ridan kuch olish.",
+    "readFullStory": "Batafsil ma'lumot",
+    "newUzbekistan": {
+      "title": "Yangi O'zbekiston Yillik Yugurish 2026",
+      "subtitle": "5km Poygasida 1-O'rin G'olibi",
+      "shortDesc": "NewUU x ADM Annual Run 2026 turnirida 5km masofaga yugurish bo'yicha 1-o'rinni egallab, maxsus sertifikat va sovrin sohibi bo'ldim.",
+      "p1": "Yangi O'zbekiston Yillik Yugurish 2026 musobaqasi sport faoliyatimdagi unutilmas lahzalardan biri bo'ldi. O'zbekistonning turli viloyatlaridan kelgan yuzlab kuchli ishtirokchilar orasida poyga juda ko'tarinki ruhda o'tdi.",
+      "p2": "5km masofani 20 daqiqadan kam vaqt ichida yuqori sur'at bilan bosib o'tib, musobaqaning mutloq 1-o'rin g'olibligini qo'lga kiritdim.",
+      "p3": "Shohsupada maxsus G'oliblik Sertifikatini qabul qilib olish ko'p oylik intizomli va uzluksiz mashg'ulotlarimning yuksak mukofoti bo'ldi."
+    },
+    "bukhara": {
+      "title": "Buxoro Tungi Poygasi 2025",
+      "subtitle": "10km Tungi Marafon",
+      "shortDesc": "Qadimiy va navqiron Buxoro shahrining osori-atiqalari hamda charog'on ko'chalari bo'ylab 10km masofani bosib o'tdim.",
+      "p1": "Buxoro Tungi Poygasida (Bukhara Night Race) qatnashish ajoyib madaniy va sport bayrami bo'ldi. Yugurish yo'nalishi tunda yog'du sochib turgan ko'hna madrasalar va minoralar yonidan o'tdi.",
+      "p2": "10km masofadagi marafonni muvaffaqiyatli yakunlab, Buxoro Tungi Poygasining rasmiy medaliga ega bo'ldim."
+    },
+    "bigChimgan": {
+      "title": "Katta Chimyon Cho'qqisi (3 309m)",
+      "subtitle": "Toshkent Viloyatining Eng Baland Cho'qqisi",
+      "shortDesc": "Tyon-Shan tog' tizmasidagi dengiz sathidan 3 309 metr balandlikda joylashgan Katta Chimyon cho'qqisini zabt etdim.",
+      "p1": "Katta Chimyon cho me'yoriy balandligi (3 309m) Toshkent viloyatidagi alpinistlar uchun eng jiddiy va mas'uliyatli sinov hisoblanadi. Tik va qoyali yo'laklar orqali ko'tarilish yuqori jismoniy tayyorgarlikni talab etadi.",
+      "p2": "Bulutlar ustida joylashgan cho'qqidagi metall piramida yonida davlatimiz bayrog'i bilan suratga tushish eng hayajonli va faxrli onlardan biri bo'ldi."
+    },
+    "begiztash": {
+      "title": "Begiztosh Cho'qqisi (2 025m)",
+      "subtitle": "Qishki Baland Tog' Ekspeditsiyasi",
+      "shortDesc": "Qahraton qish sharoitida, qalin qor va izg'irin shamolda balandligi 2 025m bo'lgan Begiztosh cho'qqisiga muvaffaqiyatli ko'tarilish.",
+      "p1": "Begiztosh cho'qqisi (balandligi 2 025 metr) qishki alpinizm borasidagi eng qiyin sinovlardan biri bo'ldi. Qalin qor va ayozli shamol sharoitida harakatlanish yuksak matonat va sabr-toqatni talab etdi.",
+      "p2": "Cho'qqidagi ko'rsatkich lavhasi yonida turib, ulug'vor tog' manzarasini tomosha qilish iroda har qanday dovonni zabt etishiga yana bir bor ishonch bag'ishladi."
+    }
   },
   "Contact": {
     "title": "Bog'lanish",

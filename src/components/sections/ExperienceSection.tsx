@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion, useInView, Variants } from 'framer-motion';
-import { Briefcase, GraduationCap, Trophy, Calendar, CheckCircle2 } from 'lucide-react';
+import { Briefcase, GraduationCap, Calendar, CheckCircle2 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import {
   Card,
@@ -65,12 +65,6 @@ export default function ExperienceSection() {
       degree: t('edu2.degree'),
       period: t('edu2.period'),
     },
-  ];
-
-  const awards = [
-    t('award1'),
-    t('award2'),
-    t('award3'),
   ];
 
   return (
@@ -168,70 +162,39 @@ export default function ExperienceSection() {
           </div>
         </motion.div>
 
-        {/* Education & Awards Grid */}
-        <div className="grid gap-12 lg:grid-cols-2">
-          {/* Education */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
-          >
-            <div className="flex items-center gap-2 mb-6 text-foreground font-bold text-xl">
-              <GraduationCap className="size-5 text-muted-foreground" />
-              <h3>{t('educationTitle')}</h3>
-            </div>
-            <div className="flex flex-col gap-3">
-              {education.map((edu, index) => (
-                <motion.div key={index} variants={itemVariants}>
-                  <Card className="border border-border bg-card hover:border-zinc-400 dark:hover:border-zinc-600 transition-all duration-200 shadow-xs">
-                    <CardContent className="flex items-center gap-4 py-5">
-                      <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-zinc-100 dark:bg-zinc-800 text-foreground border border-border">
-                        <GraduationCap className="size-5" />
-                      </div>
-                      <div className="flex flex-col gap-0.5">
-                        <h4 className="font-semibold text-sm text-foreground">{edu.institution}</h4>
-                        <p className="text-xs text-muted-foreground">
-                          {edu.degree}
-                        </p>
-                        <span className="text-[11px] font-mono text-muted-foreground mt-0.5">
-                          {edu.period}
-                        </span>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Awards */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
-          >
-            <div className="flex items-center gap-2 mb-6 text-foreground font-bold text-xl">
-              <Trophy className="size-5 text-muted-foreground" />
-              <h3>{t('awardsTitle')}</h3>
-            </div>
-            <div className="flex flex-col gap-3">
-              {awards.map((award, index) => (
-                <motion.div key={index} variants={itemVariants}>
-                  <Card className="border border-border bg-card hover:border-zinc-400 dark:hover:border-zinc-600 transition-all duration-200 shadow-xs">
-                    <CardContent className="flex items-center gap-4 py-4">
-                      <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-zinc-100 dark:bg-zinc-800 text-foreground border border-border">
-                        <Trophy className="size-4" />
-                      </div>
-                      <p className="text-xs font-medium leading-relaxed text-foreground">
-                        {award}
+        {/* Education Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? 'visible' : 'hidden'}
+        >
+          <div className="flex items-center gap-2 mb-6 text-foreground font-bold text-xl">
+            <GraduationCap className="size-5 text-muted-foreground" />
+            <h3>{t('educationTitle')}</h3>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {education.map((edu, index) => (
+              <motion.div key={index} variants={itemVariants}>
+                <Card className="border border-border bg-card hover:border-zinc-400 dark:hover:border-zinc-600 transition-all duration-200 shadow-xs h-full">
+                  <CardContent className="flex items-center gap-4 py-5">
+                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-zinc-100 dark:bg-zinc-800 text-foreground border border-border">
+                      <GraduationCap className="size-5" />
+                    </div>
+                    <div className="flex flex-col gap-0.5">
+                      <h4 className="font-semibold text-sm text-foreground">{edu.institution}</h4>
+                      <p className="text-xs text-muted-foreground">
+                        {edu.degree}
                       </p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
+                      <span className="text-[11px] font-mono text-muted-foreground mt-0.5">
+                        {edu.period}
+                      </span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

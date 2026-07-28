@@ -74,17 +74,38 @@
     "viewCode": "Source Code"
   },
   "Fun": {
-    "title": "Fun Activities & Hobbies",
-    "subtitle": "When I'm not writing code, I explore nature, conquer mountain peaks, and push my endurance boundaries.",
-    "peaksTitle": "Mountain Climbing & Summits",
-    "peaksSubtitle": "Tien Shan Mountain Range",
-    "peaksDesc": "Passionate mountaineer and outdoor enthusiast. I have successfully summitted 3 iconic mountain peaks: Oqtosh Peak, Big Chimgan Peak (3,309m elevation), and Small Chimgan Peak.",
-    "marathonsTitle": "Marathon & Endurance Running",
-    "marathonsSubtitle": "Long Distance Races",
-    "marathonsDesc": "Won 1st Place in the New Uzbekistan Annual Run (5km under 20 mins) and earned a finisher medal in the Bukhara Night Race (10km). Selected for Time Winter School among 1,500 candidates.",
-    "passionsTitle": "Algorithmic Problem Solving",
-    "passionsSubtitle": "Continuous Learning",
-    "passionsDesc": "Regularly solving data structure and algorithm puzzles on LeetCode, exploring emerging web technologies, and contributing to open-source software."
+    "sectionTitle": "Passions & Mountaineering",
+    "sectionSubtitle": "Exploring high-altitude peaks, pushing endurance limits in marathons, and embracing nature.",
+    "readFullStory": "Read Full Story",
+    "newUzbekistan": {
+      "title": "New Uzbekistan Annual Run 2026",
+      "subtitle": "5km Winner Champion",
+      "shortDesc": "Won 1st Place overall in the 5km race at the NewUU x ADM Annual Run 2026, earning the official winner trophy and certificate.",
+      "p1": "Competing in the New Uzbekistan Annual Run 2026 was a defining athletic milestone. With hundreds of competitive runners from across the country, the atmosphere at New Uzbekistan Park was incredible.",
+      "p2": "Maintaining an aggressive pace throughout the 5km course, I crossed the finish line under 20 minutes, securing 1st Place overall in the tournament.",
+      "p3": "Receiving the official Winner Certificate and award framed at the podium was a proud reward for months of disciplined morning track training."
+    },
+    "bukhara": {
+      "title": "Bukhara Night Race 2025",
+      "subtitle": "10km Night Marathon",
+      "shortDesc": "Completed the 10km distance through the illuminated Silk Road ancient monuments of historic Bukhara.",
+      "p1": "Running the Bukhara Night Race was an unforgettable cultural and sporting event. The route wove through centuries-old madrasahs and ancient minarets bathed in glowing lights.",
+      "p2": "Finished the 10km marathon with strong endurance alongside running enthusiasts, earning the official Bukhara Night Race finisher medal."
+    },
+    "bigChimgan": {
+      "title": "Big Chimgan Summit (3,309m)",
+      "subtitle": "Highest Peak in Tashkent Region",
+      "shortDesc": "Summited Big Chimgan Peak (Katta Chimyon) at 3,309 meters elevation in the Chatkal mountain range.",
+      "p1": "Scaling Big Chimgan Peak (3,309m elevation) is considered the ultimate high-altitude test for mountaineers in Tashkent. The ascent requires navigating steep rock scrambles and alpine ridges.",
+      "p2": "Reaching the metallic summit triangulation frame above the clouds and waving the national flag was a surreal, exhilarating accomplishment."
+    },
+    "begiztash": {
+      "title": "Begiztash Peak Summit (2,025m)",
+      "subtitle": "Winter High Altitude Trek",
+      "shortDesc": "Challenging winter ascent to Begiztash Peak at 2,025m altitude through sub-zero snow and icy mountain ridges.",
+      "p1": "Begiztash Peak (Height: 2,025m) provided a rugged winter trekking adventure. Navigating deep powder snow and icy ridge winds demanded absolute mental resilience.",
+      "p2": "Posing at the summit marker with the mountain expanse stretching across the horizon was proof that determination conquers every slope."
+    }
   },
   "Contact": {
     "title": "Let's Connect",
