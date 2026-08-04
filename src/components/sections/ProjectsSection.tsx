@@ -65,7 +65,7 @@ export default function ProjectsSection() {
           transition={{ duration: 0.5 }}
           className="mb-16 text-center"
         >
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-border bg-background text-xs font-mono font-medium text-muted-foreground mb-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-border bg-background text-xs font-mono font-medium text-muted-foreground mb-3 hover:border-primary/50 hover:text-foreground transition-colors cursor-default">
             <span>03</span>
             <span>/</span>
             <span>FEATURED WORK</span>
@@ -83,7 +83,7 @@ export default function ProjectsSection() {
         >
           {projects.map((project, index) => (
             <motion.div key={index} variants={itemVariants}>
-              <div className="group relative flex flex-col justify-between h-full rounded-2xl border border-border bg-card p-6 md:p-8 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all duration-200 shadow-xs">
+              <div className="group relative flex flex-col justify-between h-full rounded-2xl border border-border bg-card p-6 md:p-8 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1 shadow-xs">
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-4">
                     <div className="flex size-9 items-center justify-center rounded-lg bg-zinc-100 dark:bg-zinc-800 text-foreground border border-border">

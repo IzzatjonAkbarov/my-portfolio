@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { motion, Variants } from 'framer-motion';
+import { motion, Variants, useScroll, useTransform } from 'framer-motion';
 import { Download, Mail, ArrowRight, Code2, Globe, Send, Terminal } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -41,6 +41,10 @@ const socialLinks = [
 
 export default function HeroSection() {
   const t = useTranslations('Hero');
+  const { scrollY } = useScroll();
+  const yText = useTransform(scrollY, [0, 500], [0, 100]);
+  const yImage = useTransform(scrollY, [0, 500], [0, 50]);
+  const opacityGradient = useTransform(scrollY, [0, 300], [0.6, 0]);
 
   return (
     <section
@@ -48,13 +52,17 @@ export default function HeroSection() {
       className="relative min-h-[92vh] flex items-center justify-center overflow-hidden bg-background pt-24 pb-16"
     >
       {/* Shadcn-style background grid pattern */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-60 pointer-events-none" />
+      <motion.div style={{ opacity: opacityGradient }} className="absolute inset-0 bg-grid-pattern pointer-events-none" />
       <div className="absolute inset-0 bg-radial-gradient from-transparent via-background/60 to-background pointer-events-none" />
+      {/* Animated glowing orbs */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/15 rounded-full blur-[100px] animate-pulse pointer-events-none" style={{ animationDuration: '4s' }} />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-[100px] animate-pulse pointer-events-none" style={{ animationDuration: '6s' }} />
 
       <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-12 items-center">
           {/* Left Column — Text Content */}
           <motion.div
+            style={{ y: yText }}
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -147,6 +155,7 @@ export default function HeroSection() {
 
           {/* Right Column — Updated Portrait Image */}
           <motion.div
+            style={{ y: yImage }}
             variants={imageVariants}
             initial="hidden"
             animate="visible"

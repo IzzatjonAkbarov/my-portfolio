@@ -17,6 +17,7 @@ export default function Header() {
   const t = useTranslations('Navigation');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,9 +58,21 @@ export default function Header() {
             <button
               key={link}
               onClick={() => scrollToSection(link)}
-              className="relative px-3.5 py-1.5 text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground group rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-900"
+              onMouseEnter={() => setHoveredLink(link)}
+              onMouseLeave={() => setHoveredLink(null)}
+              className="relative px-3.5 py-1.5 text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground group rounded-md"
             >
-              {t(link)}
+              <span className="relative z-10">{t(link)}</span>
+              {hoveredLink === link && (
+                <motion.div
+                  layoutId="nav-hover"
+                  className="absolute inset-0 bg-zinc-100 dark:bg-zinc-800 rounded-md -z-0"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                />
+              )}
             </button>
           ))}
         </div>
