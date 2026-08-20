@@ -148,7 +148,7 @@ export default function FunSection() {
   const [selectedActivity, setSelectedActivity] = useState<ActivityDetail | null>(null);
 
   return (
-    <section id="fun" className="relative py-24 border-t border-border/40 bg-zinc-50/50 dark:bg-zinc-950/50">
+    <section id="fun" className="relative py-24 border-t border-border/40 bg-transparent">
       <div ref={ref} className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <motion.div

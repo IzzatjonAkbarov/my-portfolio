@@ -44,20 +44,12 @@ export default function HeroSection() {
   const { scrollY } = useScroll();
   const yText = useTransform(scrollY, [0, 500], [0, 100]);
   const yImage = useTransform(scrollY, [0, 500], [0, 50]);
-  const opacityGradient = useTransform(scrollY, [0, 300], [0.6, 0]);
 
   return (
     <section
       id="hero"
-      className="relative min-h-[92vh] flex items-center justify-center overflow-hidden bg-background pt-24 pb-16"
+      className="relative min-h-[92vh] flex items-center justify-center overflow-hidden bg-transparent pt-24 pb-16"
     >
-      {/* Shadcn-style background grid pattern */}
-      <motion.div style={{ opacity: opacityGradient }} className="absolute inset-0 bg-grid-pattern pointer-events-none" />
-      <div className="absolute inset-0 bg-radial-gradient from-transparent via-background/60 to-background pointer-events-none" />
-      {/* Animated glowing orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/15 rounded-full blur-[100px] animate-pulse pointer-events-none" style={{ animationDuration: '4s' }} />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-[100px] animate-pulse pointer-events-none" style={{ animationDuration: '6s' }} />
-
       <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-12 items-center">
           {/* Left Column — Text Content */}
@@ -153,7 +145,7 @@ export default function HeroSection() {
             </motion.div>
           </motion.div>
 
-          {/* Right Column — Updated Portrait Image */}
+          {/* Right Column — Portrait Image */}
           <motion.div
             style={{ y: yImage }}
             variants={imageVariants}
@@ -174,7 +166,6 @@ export default function HeroSection() {
                     unoptimized
                     sizes="(max-width: 640px) 280px, 320px"
                   />
-                  {/* Subtle vignette overlay */}
                   <div className="absolute inset-0 ring-1 ring-inset ring-black/10 dark:ring-white/10 rounded-xl" />
                 </div>
               </div>

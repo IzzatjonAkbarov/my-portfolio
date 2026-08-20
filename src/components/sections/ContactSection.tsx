@@ -160,7 +160,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative py-24 border-t border-border/40 bg-background">
+    <section id="contact" className="relative py-24 border-t border-border/40 bg-transparent">
       <div ref={ref} className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <motion.div
