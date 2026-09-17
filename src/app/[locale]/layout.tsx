@@ -3,6 +3,7 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { ThemeProvider } from 'next-themes';
 import { Inter } from 'next/font/google';
+import AgentEmbed from '@/components/AgentEmbed';
 import { routing } from '@/i18n/routing';
 import type { Metadata, Viewport } from 'next';
 import '../globals.css';
@@ -101,6 +102,7 @@ export default async function LocaleLayout({
             {children}
           </NextIntlClientProvider>
         </ThemeProvider>
+        <AgentEmbed />
       </body>
     </html>
   );
