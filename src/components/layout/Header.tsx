@@ -2,147 +2,145 @@
 
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
 import ThemeToggle from '@/components/ThemeToggle';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
-
 import Logo from '@/components/Logo';
+import ElevationProfile from '@/components/map/ElevationProfile';
+import { useRouteProgress, goTo } from '@/components/map/useRouteProgress';
+import { WAYPOINTS } from '@/components/map/terrain';
+import { SummitMark } from '@/components/map/Markers';
 
 const navLinks = ['about', 'experience', 'projects', 'fun', 'contact'] as const;
 
 export default function Header() {
   const t = useTranslations('Navigation');
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
+  const { x, active, pastHero } = useRouteProgress();
+  const activeId = WAYPOINTS[active];
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    if (!isMobileMenuOpen) return;
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setIsMobileMenuOpen(false);
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [isMobileMenuOpen]);
 
-  const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+  const navigate = (id: string) => {
+    goTo(id);
     setIsMobileMenuOpen(false);
   };
 
   return (
-    <header
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
-        'bg-background/80 backdrop-blur-xl border-b border-border/40',
-        isScrolled && 'shadow-lg shadow-black/5 dark:shadow-black/20'
-      )}
-    >
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Logo */}
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-rule bg-paper">
+      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-5 sm:px-8">
         <button
-          onClick={() => scrollToSection('hero')}
-          className="group relative flex items-center gap-2 cursor-pointer"
+          type="button"
+          onClick={() => navigate('hero')}
+          className="flex items-center gap-2.5 cursor-pointer"
+          aria-label={t('home')}
         >
           <Logo size="md" />
-          <span className="font-semibold text-sm tracking-tight text-foreground hidden sm:inline-block">
-            izzatjon.dev
+          <span className="hidden whitespace-nowrap font-display text-[15px] font-bold tracking-tight text-ink min-[400px]:inline">
+            Izzatjon Akbarov
           </span>
         </button>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <button
-              key={link}
-              onClick={() => scrollToSection(link)}
-              onMouseEnter={() => setHoveredLink(link)}
-              onMouseLeave={() => setHoveredLink(null)}
-              className="relative px-3.5 py-1.5 text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground group rounded-md"
-            >
-              <span className="relative z-10">{t(link)}</span>
-              {hoveredLink === link && (
-                <motion.div
-                  layoutId="nav-hover"
-                  className="absolute inset-0 bg-zinc-100 dark:bg-zinc-800 rounded-md -z-0"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                />
-              )}
-            </button>
-          ))}
-        </div>
+        <ul className="hidden items-center gap-1 lg:flex">
+          {navLinks.map((link) => {
+            const current = activeId === link;
+            return (
+              <li key={link}>
+                <button
+                  type="button"
+                  onClick={() => navigate(link)}
+                  aria-current={current ? 'true' : undefined}
+                  className={cn(
+                    'relative px-3 py-2 text-[15px] font-medium transition-colors cursor-pointer',
+                    'inline-flex items-center gap-1.5',
+                    current ? 'text-ink' : 'text-ink-soft hover:text-ink'
+                  )}
+                >
+                  {link === 'contact' && <SummitMark className="size-3 text-trail" />}
+                  {t(link)}
+                  <span
+                    className={cn(
+                      'absolute inset-x-3 -bottom-px h-0.5 bg-trail transition-transform origin-left duration-300',
+                      current ? 'scale-x-100' : 'scale-x-0'
+                    )}
+                  />
+                </button>
+              </li>
+            );
+          })}
+        </ul>
 
-        {/* Right Side Actions */}
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-2">
           <LanguageSwitcher />
           <ThemeToggle />
-
-          {/* Mobile Menu Toggle */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="relative size-9 rounded-full md:hidden cursor-pointer"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          <button
+            type="button"
+            className="grid size-10 place-items-center border border-rule text-ink lg:hidden cursor-pointer hover:bg-muted"
+            onClick={() => setIsMobileMenuOpen((o) => !o)}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-route"
+            aria-label={t('menu')}
           >
-            <AnimatePresence mode="wait">
-              {isMobileMenuOpen ? (
-                <motion.div
-                  key="close"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <X className="size-5" />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="menu"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Menu className="size-5" />
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </Button>
+            {isMobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+          </button>
         </div>
       </nav>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="overflow-hidden border-t border-border/40 bg-background/95 backdrop-blur-xl md:hidden"
-          >
-            <div className="flex flex-col gap-1 px-4 py-4">
-              {navLinks.map((link, index) => (
-                <motion.button
-                  key={link}
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: index * 0.05, duration: 0.2 }}
-                  onClick={() => scrollToSection(link)}
-                  className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-muted-foreground transition-all duration-300 hover:bg-muted hover:text-foreground"
-                >
-                  {t(link)}
-                </motion.button>
-              ))}
-            </div>
-          </motion.div>
+      {/* Docked route: the hero's elevation profile follows the reader down the page */}
+      <div
+        className={cn(
+          'grid transition-[grid-template-rows,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]',
+          pastHero && !isMobileMenuOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
         )}
-      </AnimatePresence>
+        aria-hidden={!pastHero}
+        inert={!pastHero}
+      >
+        <div className="overflow-hidden">
+          <div className="mx-auto flex max-w-7xl items-center gap-4 border-t border-rule px-5 py-1.5 sm:px-8">
+            <span className="hidden shrink-0 text-xs font-medium text-ink-soft sm:block">
+              {t('youAreHere')}:{' '}
+              <span className="font-semibold text-ink">
+                {t(activeId === 'hero' ? 'home' : activeId)}
+              </span>
+            </span>
+            <ElevationProfile variant="docked" progress={x} active={active} className="flex-1 px-3" />
+          </div>
+        </div>
+      </div>
+
+      {isMobileMenuOpen && (
+        <div id="mobile-route" className="border-t border-rule bg-paper lg:hidden">
+          <ol className="relative mx-5 my-4 border-l-2 border-trail pl-6 sm:mx-8">
+            {WAYPOINTS.map((id, i) => (
+              <li key={id} className="relative">
+                <span
+                  className={cn(
+                    'absolute -left-[33px] top-1/2 size-3.5 -translate-y-1/2 rounded-full border-2 border-trail',
+                    i <= active ? 'bg-trail' : 'bg-paper'
+                  )}
+                  aria-hidden="true"
+                />
+                <button
+                  type="button"
+                  onClick={() => navigate(id)}
+                  className={cn(
+                    'w-full py-3 text-left text-lg font-medium cursor-pointer',
+                    activeId === id ? 'font-semibold text-ink' : 'text-ink-soft'
+                  )}
+                >
+                  {t(id === 'hero' ? 'home' : id)}
+                </button>
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
     </header>
   );
 }

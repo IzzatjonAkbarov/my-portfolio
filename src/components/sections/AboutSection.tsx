@@ -1,133 +1,86 @@
-'use client';
-
-import { useRef } from 'react';
 import { useTranslations } from 'next-intl';
-import { motion, useInView, Variants } from 'framer-motion';
-import {
-  Code,
-  FileCode,
-  Layers,
-  Palette,
-  LayoutGrid,
-  Component,
-  Database,
-  GitBranch,
-  Globe2,
-} from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent } from '@/components/ui/card';
+import SectionHeading from '@/components/map/SectionHeading';
+import Reveal from '@/components/motion/Reveal';
+
+// Each skill gets its own map-legend symbol, drawn at one stroke weight.
+const symbols: Record<string, React.ReactNode> = {
+  line: <path d="M2 8h20" strokeWidth="2.5" />,
+  dash: <path d="M2 8h20" strokeWidth="2.5" strokeDasharray="4 3" />,
+  dots: <path d="M3 8h18" strokeWidth="3" strokeDasharray="0.1 4.5" strokeLinecap="round" />,
+  double: <path d="M2 5.5h20M2 10.5h20" strokeWidth="1.5" />,
+  ring: <circle cx="12" cy="8" r="4.5" strokeWidth="1.75" />,
+  tri: <path d="M12 3 17.5 13h-11Z" strokeWidth="1.75" strokeLinejoin="round" />,
+  square: <rect x="7" y="3.5" width="10" height="9" strokeWidth="1.75" />,
+  hatch: (
+    <>
+      <rect x="6" y="3" width="12" height="10" strokeWidth="1.25" />
+      <path d="M6 9 10 3M9 13l6-10M14 13l4-6" strokeWidth="1.1" />
+    </>
+  ),
+  cross: <path d="M8 4l8 8M16 4l-8 8" strokeWidth="1.75" />,
+};
 
 const skills = [
-  { icon: Code, label: 'HTML5 / CSS3' },
-  { icon: FileCode, label: 'JavaScript / TypeScript' },
-  { icon: Layers, label: 'React.js / Next.js' },
-  { icon: Palette, label: 'Tailwind CSS / Sass' },
-  { icon: LayoutGrid, label: 'Ant Design / MUI' },
-  { icon: Component, label: 'Shadcn UI' },
-  { icon: Database, label: 'React Query' },
-  { icon: GitBranch, label: 'Redux / Zustand' },
-  { icon: GitBranch, label: 'Git / GitHub' },
+  { symbol: 'line', label: 'HTML5 / CSS3' },
+  { symbol: 'double', label: 'JavaScript / TypeScript' },
+  { symbol: 'tri', label: 'React.js / Next.js' },
+  { symbol: 'dash', label: 'Tailwind CSS / Sass' },
+  { symbol: 'square', label: 'Ant Design / MUI' },
+  { symbol: 'hatch', label: 'Shadcn UI' },
+  { symbol: 'ring', label: 'React Query' },
+  { symbol: 'dots', label: 'Redux / Zustand' },
+  { symbol: 'cross', label: 'Git / GitHub' },
 ];
 
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.06 },
-  },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 15 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
-  },
-};
+function LegendSymbol({ name, tone }: { name: string; tone: string }) {
+  return (
+    <svg viewBox="0 0 24 16" className={`h-4 w-6 shrink-0 ${tone}`} fill="none" stroke="currentColor" aria-hidden="true">
+      {symbols[name]}
+    </svg>
+  );
+}
 
 export default function AboutSection() {
   const t = useTranslations('About');
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+
+  const languages = [t('uzbek'), t('english'), t('russian')];
 
   return (
-    <section id="about" className="relative py-24 border-t border-border/40 bg-transparent">
-      <div ref={ref} className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        {/* Section Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="mb-14 text-center"
-        >
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-border bg-background text-xs font-mono font-medium text-muted-foreground mb-3">
-            <span>01</span>
-            <span>/</span>
-            <span>OVERVIEW</span>
-          </div>
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-foreground">
-            {t('title')}
-          </h2>
-        </motion.div>
-
-        <div className="grid gap-12 lg:grid-cols-12 items-start">
-          {/* Left Column — Bio & Languages */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
-            className="lg:col-span-6 flex flex-col gap-6"
-          >
-            <motion.div variants={itemVariants} className="rounded-2xl border border-border bg-card p-6 shadow-xs">
-              <h3 className="text-lg font-semibold text-card-foreground mb-3">
-                Background & Philosophy
-              </h3>
-              <p className="text-base leading-relaxed text-muted-foreground">
-                {t('description')}
-              </p>
-            </motion.div>
-
-            {/* Languages Card */}
-            <motion.div variants={itemVariants} className="rounded-2xl border border-border bg-card p-6 shadow-xs flex flex-col gap-4">
-              <div className="flex items-center gap-2 text-foreground font-semibold text-sm">
-                <Globe2 className="size-4 text-muted-foreground" />
-                <span>{t('languages')}</span>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                <Badge variant="outline" className="px-3.5 py-1.5 h-auto text-xs font-medium rounded-full border-border bg-zinc-100/80 dark:bg-zinc-900/80">
-                  🇺🇿 {t('uzbek')}
-                </Badge>
-                <Badge variant="outline" className="px-3.5 py-1.5 h-auto text-xs font-medium rounded-full border-border bg-zinc-100/80 dark:bg-zinc-900/80">
-                  🇬🇧 {t('english')}
-                </Badge>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Right Column — Tech Stack Grid */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
-            className="lg:col-span-6 grid grid-cols-2 gap-3 sm:grid-cols-3"
-          >
-            {skills.map((skill) => (
-              <motion.div key={skill.label} variants={itemVariants}>
-                <Card className="group relative cursor-default border border-border/80 bg-card hover:border-zinc-400 dark:hover:border-zinc-600 transition-all duration-200 shadow-xs">
-                  <CardContent className="flex flex-col items-center gap-2.5 py-5 px-3 text-center">
-                    <div className="flex size-9 items-center justify-center rounded-lg bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-100 transition-transform duration-200 group-hover:scale-105">
-                      <skill.icon className="size-4" />
-                    </div>
-                    <span className="text-xs font-medium tracking-tight text-foreground">
-                      {skill.label}
-                    </span>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
+    <section id="about" className="px-4 py-24 sm:px-8 sm:py-32">
+      <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-12 lg:gap-10">
+        <div className="lg:col-span-7 lg:pt-2">
+          <SectionHeading title={t('title')} reveal="clip" />
+          <Reveal variant="blur" delay={0.2}>
+            <p className="mt-8 max-w-[60ch] text-xl leading-[1.65] text-ink">{t('description')}</p>
+          </Reveal>
         </div>
+
+        <aside className="lg:col-span-5">
+          <Reveal variant="rise" delay={0.1} className="border border-ink/30 bg-paper-raised">
+            <h3 className="border-b border-ink/30 px-6 py-4 font-display text-base font-bold text-ink">
+              {t('skillsTitle')}
+            </h3>
+            <ul className="grid gap-x-6 px-6 py-5 sm:grid-cols-2">
+              {skills.map((s, i) => (
+                <Reveal as="li" variant="slide" delay={0.1 + i * 0.05} duration={0.6} key={s.label} className="flex items-center gap-3 py-2 text-[15px] font-medium text-ink">
+                  <LegendSymbol name={s.symbol} tone={i % 3 === 0 ? 'text-trail' : i % 3 === 1 ? 'text-water' : 'text-contour'} />
+                  {s.label}
+                </Reveal>
+              ))}
+            </ul>
+            <h3 className="border-y border-ink/30 px-6 py-4 font-display text-base font-bold text-ink">
+              {t('languages')}
+            </h3>
+            <ul className="px-6 py-4">
+              {languages.map((lang) => (
+                <li key={lang} className="flex items-baseline gap-3 py-1.5 text-[15px] text-ink">
+                  <span className="h-px w-6 shrink-0 translate-y-[-0.3em] bg-ink/50" aria-hidden="true" />
+                  {lang}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </aside>
       </div>
     </section>
   );

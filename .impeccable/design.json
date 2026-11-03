@@ -1,0 +1,676 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-03T13:47:31+00:00",
+  "title": "Design System: Izzatjon Akbarov Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Survey Paper",
+        "canonical": "#e9ece3",
+        "oklch": "oklch(93.8% 0.012 121.7)",
+        "tonalRamp": [
+          "#0b0c09",
+          "#232521",
+          "#3f413b",
+          "#5c5f58",
+          "#7c7e77",
+          "#9d9f99",
+          "#c3c5bf",
+          "#eeefeb"
+        ],
+        "theme": "light (:root)"
+      },
+      "paper-raised": {
+        "role": "neutral",
+        "displayName": "Raised Paper",
+        "canonical": "#f3f5ef",
+        "oklch": "oklch(96.7% 0.008 121.6)",
+        "tonalRamp": [
+          "#0b0b0a",
+          "#242422",
+          "#3f403d",
+          "#5d5e5a",
+          "#7c7e79",
+          "#9e9f9b",
+          "#c3c5c1",
+          "#eeefec"
+        ],
+        "theme": "light (:root)"
+      },
+      "paper-wash": {
+        "role": "neutral",
+        "displayName": "Paper Wash",
+        "canonical": "#dfe3d8",
+        "oklch": "oklch(91.0% 0.015 123.1)",
+        "tonalRamp": [
+          "#0b0c09",
+          "#232520",
+          "#3e413a",
+          "#5c5f56",
+          "#7b7f75",
+          "#9da098",
+          "#c3c5be",
+          "#edefea"
+        ],
+        "theme": "light (:root)"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Map Ink",
+        "canonical": "#1d2420",
+        "oklch": "oklch(25.2% 0.013 160.3)",
+        "tonalRamp": [
+          "#090c0a",
+          "#212523",
+          "#3c413e",
+          "#58605b",
+          "#77807b",
+          "#99a09c",
+          "#c0c6c2",
+          "#ebf0ed"
+        ],
+        "theme": "light (:root)"
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "#4b564e",
+        "oklch": "oklch(44.1% 0.019 154.0)",
+        "tonalRamp": [
+          "#080c09",
+          "#202621",
+          "#3a423c",
+          "#566159",
+          "#758178",
+          "#98a19a",
+          "#bec6c1",
+          "#eaf0ec"
+        ],
+        "theme": "light (:root)"
+      },
+      "contour": {
+        "role": "tertiary",
+        "displayName": "Contour Brown",
+        "canonical": "#8a5a2b",
+        "oklch": "oklch(51.1% 0.089 62.8)",
+        "tonalRamp": [
+          "#170700",
+          "#361d04",
+          "#583716",
+          "#7e532a",
+          "#a17246",
+          "#be9571",
+          "#dfbd9f",
+          "#ffe9d3"
+        ],
+        "theme": "light (:root)"
+      },
+      "trail": {
+        "role": "primary",
+        "displayName": "Trail Red",
+        "canonical": "#b8352a",
+        "oklch": "oklch(52.5% 0.169 28.9)",
+        "tonalRamp": [
+          "#230000",
+          "#4a0302",
+          "#751812",
+          "#a22f25",
+          "#cb4f42",
+          "#e67b6d",
+          "#ffa99c",
+          "#ffdcd1"
+        ],
+        "theme": "light (:root)"
+      },
+      "trail-ink": {
+        "role": "primary",
+        "displayName": "Trail Ink",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#7d7d7d",
+          "#9e9e9e",
+          "#c4c4c4",
+          "#eeeeee"
+        ],
+        "theme": "light (:root)"
+      },
+      "water": {
+        "role": "secondary",
+        "displayName": "Lake Blue",
+        "canonical": "#3d6f8e",
+        "oklch": "oklch(52.0% 0.073 237.6)",
+        "tonalRamp": [
+          "#000d17",
+          "#0c2737",
+          "#214459",
+          "#37637f",
+          "#5484a2",
+          "#7ca4bf",
+          "#a9c9df",
+          "#dbf2ff"
+        ],
+        "theme": "light (:root)"
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule Hairline",
+        "canonical": "rgb(29 36 32 / 0.14)",
+        "note": "Ink at fixed alpha; no tonal ramp.",
+        "theme": "light (:root)"
+      },
+      "survey-grid": {
+        "role": "neutral",
+        "displayName": "Survey Grid",
+        "canonical": "rgb(29 36 32 / 0.05)",
+        "note": "Ink at fixed alpha; no tonal ramp.",
+        "theme": "light (:root)"
+      },
+      "field-stroke": {
+        "role": "neutral",
+        "displayName": "Field Stroke",
+        "canonical": "rgb(29 36 32 / 0.32)",
+        "note": "Ink at fixed alpha; no tonal ramp.",
+        "theme": "light (:root)"
+      },
+      "error": {
+        "role": "neutral",
+        "displayName": "Error Red",
+        "canonical": "#a8271d",
+        "oklch": "oklch(48.2% 0.167 29.2)",
+        "tonalRamp": [
+          "#230000",
+          "#4a0402",
+          "#741a12",
+          "#a13025",
+          "#ca5042",
+          "#e57c6d",
+          "#ffaa9c",
+          "#ffdcd1"
+        ],
+        "theme": "light (:root)"
+      },
+      "night-paper": {
+        "role": "neutral",
+        "displayName": "Night Paper",
+        "canonical": "#121815",
+        "oklch": "oklch(20.2% 0.011 163.6)",
+        "tonalRamp": [
+          "#090c0b",
+          "#212523",
+          "#3c413e",
+          "#595f5c",
+          "#787f7b",
+          "#9aa09d",
+          "#c0c5c3",
+          "#ecefed"
+        ],
+        "theme": "dark (.dark)"
+      },
+      "night-paper-raised": {
+        "role": "neutral",
+        "displayName": "Night Raised Paper",
+        "canonical": "#19211d",
+        "oklch": "oklch(23.8% 0.014 163.5)",
+        "tonalRamp": [
+          "#090c0a",
+          "#202523",
+          "#3b423e",
+          "#58605c",
+          "#77807b",
+          "#99a19c",
+          "#bfc6c2",
+          "#ebf0ed"
+        ],
+        "theme": "dark (.dark)"
+      },
+      "night-paper-wash": {
+        "role": "neutral",
+        "displayName": "Night Paper Wash",
+        "canonical": "#222b26",
+        "oklch": "oklch(27.9% 0.016 160.9)",
+        "tonalRamp": [
+          "#090c0a",
+          "#202522",
+          "#3b423e",
+          "#57605b",
+          "#76807a",
+          "#98a19c",
+          "#bfc6c2",
+          "#ebf0ed"
+        ],
+        "theme": "dark (.dark)"
+      },
+      "night-ink": {
+        "role": "neutral",
+        "displayName": "Headlamp Ink",
+        "canonical": "#e4e8de",
+        "oklch": "oklch(92.5% 0.014 124.6)",
+        "tonalRamp": [
+          "#0a0c09",
+          "#232520",
+          "#3e413b",
+          "#5c5f57",
+          "#7b7f76",
+          "#9da098",
+          "#c3c5bf",
+          "#edefeb"
+        ],
+        "theme": "dark (.dark)"
+      },
+      "night-ink-soft": {
+        "role": "neutral",
+        "displayName": "Headlamp Soft Ink",
+        "canonical": "#a3ada4",
+        "oklch": "oklch(73.7% 0.017 148.3)",
+        "tonalRamp": [
+          "#090c09",
+          "#212521",
+          "#3b423c",
+          "#586059",
+          "#778078",
+          "#99a19a",
+          "#c0c6c0",
+          "#ebf0ec"
+        ],
+        "theme": "dark (.dark)"
+      },
+      "night-contour": {
+        "role": "tertiary",
+        "displayName": "Night Contour",
+        "canonical": "#c39a66",
+        "oklch": "oklch(71.2% 0.084 72.4)",
+        "tonalRamp": [
+          "#150800",
+          "#331f03",
+          "#543a15",
+          "#785629",
+          "#9b7646",
+          "#b99870",
+          "#dabf9f",
+          "#ffebd3"
+        ],
+        "theme": "dark (.dark)"
+      },
+      "night-trail": {
+        "role": "primary",
+        "displayName": "Night Trail Red",
+        "canonical": "#e0533f",
+        "oklch": "oklch(62.8% 0.180 30.8)",
+        "tonalRamp": [
+          "#240000",
+          "#4c0000",
+          "#771307",
+          "#a62a1a",
+          "#cf4b39",
+          "#ea7966",
+          "#ffa897",
+          "#ffdbce"
+        ],
+        "theme": "dark (.dark)"
+      },
+      "night-trail-ink": {
+        "role": "primary",
+        "displayName": "Night Trail Ink",
+        "canonical": "#121815",
+        "oklch": "oklch(20.2% 0.011 163.6)",
+        "tonalRamp": [
+          "#090c0b",
+          "#212523",
+          "#3c413e",
+          "#595f5c",
+          "#787f7b",
+          "#9aa09d",
+          "#c0c5c3",
+          "#ecefed"
+        ],
+        "theme": "dark (.dark)"
+      },
+      "night-water": {
+        "role": "secondary",
+        "displayName": "Night Lake Blue",
+        "canonical": "#79aecd",
+        "oklch": "oklch(72.5% 0.072 234.8)",
+        "tonalRamp": [
+          "#000d17",
+          "#0b2736",
+          "#204458",
+          "#36647d",
+          "#5384a0",
+          "#7ca5bd",
+          "#a9cade",
+          "#daf3ff"
+        ],
+        "theme": "dark (.dark)"
+      },
+      "night-rule": {
+        "role": "neutral",
+        "displayName": "Night Rule Hairline",
+        "canonical": "rgb(228 232 222 / 0.14)",
+        "note": "Ink at fixed alpha; no tonal ramp.",
+        "theme": "dark (.dark)"
+      },
+      "night-survey-grid": {
+        "role": "neutral",
+        "displayName": "Night Survey Grid",
+        "canonical": "rgb(228 232 222 / 0.04)",
+        "note": "Ink at fixed alpha; no tonal ramp.",
+        "theme": "dark (.dark)"
+      },
+      "night-field-stroke": {
+        "role": "neutral",
+        "displayName": "Night Field Stroke",
+        "canonical": "rgb(228 232 222 / 0.3)",
+        "note": "Ink at fixed alpha; no tonal ramp.",
+        "theme": "dark (.dark)"
+      },
+      "night-error": {
+        "role": "neutral",
+        "displayName": "Night Error Red",
+        "canonical": "#f07a6a",
+        "oklch": "oklch(71.1% 0.148 29.2)",
+        "tonalRamp": [
+          "#200000",
+          "#460b07",
+          "#6f2119",
+          "#9b382d",
+          "#c2574a",
+          "#de8173",
+          "#fbada1",
+          "#ffded5"
+        ],
+        "theme": "dark (.dark)"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The name in the hero only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles, preceded by a waypoint ring or summit triangle."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Project names."
+      },
+      "title-small": {
+        "displayName": "Title Small",
+        "purpose": "Companies on the route; the lead passion title."
+      },
+      "panel-head": {
+        "displayName": "Panel Head",
+        "purpose": "Legend panel and direct-lines headers; hero role line at 500 in trail."
+      },
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "Elevations, distances and times on Passions; counts up on entry."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Ledes and project descriptions, 52 to 62ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Route descriptions and story text, 65 to 68ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Form labels, chips, button text."
+      },
+      "data": {
+        "displayName": "Data",
+        "purpose": "Terminal lines, stack arrays, periods. Data only."
+      },
+      "data-small": {
+        "displayName": "Data Small",
+        "purpose": "Map tags, HUD coordinates, contour elevation labels."
+      }
+    },
+    "shadows": [
+      {
+        "name": "trail-lift",
+        "value": "0 6px 18px -8px var(--trail)",
+        "purpose": "Primary buttons at rest."
+      },
+      {
+        "name": "trail-lift-hover",
+        "value": "0 10px 24px -10px var(--trail)",
+        "purpose": "Primary buttons on hover, with a 2px rise."
+      },
+      {
+        "name": "inset-plate",
+        "value": "0 18px 40px -22px rgb(0 0 0 / 0.55)",
+        "purpose": "Portrait mounted on the hero contour field."
+      },
+      {
+        "name": "menu",
+        "value": "0 12px 30px -14px rgb(0 0 0 / 0.45)",
+        "purpose": "Language, theme and country menus."
+      },
+      {
+        "name": "modal",
+        "value": "0 30px 80px -30px rgb(0 0 0 / 0.7)",
+        "purpose": "Passion story dialog over a rgb(10 14 12 / 0.72) scrim."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-arrive",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "All reveals, docking, hover transforms and contour draws."
+      },
+      {
+        "name": "ease-trail",
+        "value": "cubic-bezier(0.65, 0, 0.35, 1)",
+        "purpose": "Hero trail draw only (2.2s, 0.6s delay, clip-path from the left)."
+      },
+      {
+        "name": "reveal",
+        "value": "0.8s to 1s",
+        "purpose": "Section reveals: rise 28px, blur 10px, clip from left, slide 24px; varied per section."
+      },
+      {
+        "name": "contour-draw",
+        "value": "1.6s per ring, 0.06s stagger",
+        "purpose": "Contour rings draw summit outward on entry."
+      },
+      {
+        "name": "contour-settle",
+        "value": "1.4s, scale 1.04 to 1 with 2px blur",
+        "purpose": "Hero contour field settling in."
+      },
+      {
+        "name": "count-up",
+        "value": "1400ms, ease-out quart",
+        "purpose": "Race and summit figures."
+      },
+      {
+        "name": "typed",
+        "value": "55 to 70ms per character",
+        "purpose": "Hero terminal prompt; caret blinks at 1.05s steps(1)."
+      },
+      {
+        "name": "dock",
+        "value": "500ms",
+        "purpose": "Elevation strip docking under the header."
+      },
+      {
+        "name": "crosshair",
+        "value": "100ms ease-out",
+        "purpose": "HUD crosshair following the pointer."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "final state",
+        "purpose": "All motion resolves to its resting state under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "xs",
+        "value": "400px"
+      },
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The trail action: Contact in the hero, Send in the form. Rises and sweeps an ink wash on hover.",
+      "html": "<button class=\"ds-btn-primary\"><span class=\"ds-btn-primary-wash\"></span><span class=\"ds-btn-primary-label\">Get In Touch</span><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m7 7 10 10\"/><path d=\"M17 7v10H7\"/></svg></button>",
+      "css": ".ds-btn-primary { position: relative; overflow: hidden; display: inline-flex; align-items: center; gap: 12px; height: 52px; padding: 0 28px; border: 0; border-radius: 0; background: var(--trail, #b8352a); color: var(--trail-ink, #ffffff); font-family: 'Golos Text', sans-serif; font-size: 16px; font-weight: 600; cursor: pointer; box-shadow: 0 6px 18px -8px var(--trail, #b8352a); transition: transform 150ms, box-shadow 150ms; } .ds-btn-primary > * { position: relative; } .ds-btn-primary .ds-btn-primary-wash { position: absolute; inset: 0; background: rgb(29 36 32 / 0.15); transform: translateX(-100%); transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -10px var(--trail, #b8352a); } .ds-btn-primary:hover .ds-btn-primary-wash { transform: translateX(0); } .ds-btn-primary svg { transition: transform 150ms; } .ds-btn-primary:hover svg { transform: translate(2px, 2px); } .ds-btn-primary:focus-visible { outline: 2px solid var(--water, #3d6f8e); outline-offset: 3px; }"
+    },
+    {
+      "name": "Ink Button",
+      "kind": "button",
+      "refersTo": "button-ink",
+      "description": "Secondary solid action (View project). Ink fill that turns trail red on hover.",
+      "html": "<a class=\"ds-btn-ink\" href=\"#\">View Project <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"/><path d=\"M7 17 17 7\"/></svg></a>",
+      "css": ".ds-btn-ink { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 20px; border-radius: 0; background: var(--ink, #1d2420); color: var(--paper, #e9ece3); font-family: 'Golos Text', sans-serif; font-size: 15px; font-weight: 600; text-decoration: none; transition: background-color 150ms, color 150ms; } .ds-btn-ink svg { transition: transform 150ms; } .ds-btn-ink:hover { background: var(--trail, #b8352a); color: var(--trail-ink, #ffffff); } .ds-btn-ink:hover svg { transform: translate(2px, -2px); } .ds-btn-ink:focus-visible { outline: 2px solid var(--water, #3d6f8e); outline-offset: 3px; }"
+    },
+    {
+      "name": "Text Link Action",
+      "kind": "button",
+      "refersTo": "button-ink",
+      "description": "Download CV, View code, Read full story: semibold ink with a 40% underline that turns trail.",
+      "html": "<a class=\"ds-link-action\" href=\"#\">Download CV</a>",
+      "css": ".ds-link-action { font-family: 'Golos Text', sans-serif; font-size: 15px; font-weight: 600; color: var(--ink, #1d2420); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.22em; text-decoration-color: rgb(29 36 32 / 0.4); transition: text-decoration-color 150ms; } .ds-link-action:hover { text-decoration-color: var(--trail, #b8352a); } .ds-link-action:focus-visible { outline: 2px solid var(--water, #3d6f8e); outline-offset: 3px; }"
+    },
+    {
+      "name": "Underline Field",
+      "kind": "input",
+      "refersTo": "field-underline",
+      "description": "Contact form field: label above, 2px underline only, lake-blue on focus, error red when invalid.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Your Name</span><input class=\"ds-field-input\" placeholder=\"Enter your name\" /></label>",
+      "css": ".ds-field { display: block; font-family: 'Golos Text', sans-serif; } .ds-field-label { display: block; font-size: 14px; font-weight: 600; color: var(--ink, #1d2420); } .ds-field-input { width: 100%; border: 0; border-bottom: 2px solid var(--input, rgb(29 36 32 / 0.32)); border-radius: 0; background: transparent; padding: 10px 0; font: inherit; font-size: 18px; color: var(--ink, #1d2420); outline: none; transition: border-color 150ms; } .ds-field-input::placeholder { color: var(--ink-soft, #4b564e); opacity: 0.7; } .ds-field-input:focus { border-bottom-color: var(--water, #3d6f8e); } .ds-field-input[aria-invalid=true] { border-bottom-color: var(--destructive, #a8271d); }"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": "control-square",
+      "description": "Waypoint nav: soft-ink links, current link in ink with a trail underline scaling in; Contact carries the summit mark; square controls right.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link\" href=\"#\">About</a><a class=\"ds-nav-link\" aria-current=\"true\" href=\"#\">Experience</a><a class=\"ds-nav-link\" href=\"#\">Projects</a><a class=\"ds-nav-link ds-nav-summit\" href=\"#\"><svg width=\"12\" height=\"12\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M8 2.2 14.4 13.6H1.6Z\" fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/></svg>Contact</a><button class=\"ds-nav-control\">EN</button></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 4px; height: 64px; padding: 0 20px; background: var(--paper, #e9ece3); border-bottom: 1px solid var(--rule, rgb(29 36 32 / 0.14)); font-family: 'Golos Text', sans-serif; } .ds-nav-link { position: relative; display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; font-size: 15px; font-weight: 500; color: var(--ink-soft, #4b564e); text-decoration: none; transition: color 150ms; } .ds-nav-link::after { content: ''; position: absolute; left: 12px; right: 12px; bottom: -1px; height: 2px; background: var(--trail, #b8352a); transform: scaleX(0); transform-origin: left; transition: transform 300ms; } .ds-nav-link:hover { color: var(--ink, #1d2420); } .ds-nav-link[aria-current=true] { color: var(--ink, #1d2420); } .ds-nav-link[aria-current=true]::after { transform: scaleX(1); } .ds-nav-summit svg { color: var(--trail, #b8352a); } .ds-nav-control { margin-left: auto; height: 40px; min-width: 40px; padding: 0 12px; border: 1px solid var(--rule, rgb(29 36 32 / 0.14)); border-radius: 0; background: transparent; color: var(--ink, #1d2420); font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; } .ds-nav-control:hover { background: var(--muted, #dfe3d8); } .ds-nav-link:focus-visible, .ds-nav-control:focus-visible { outline: 2px solid var(--water, #3d6f8e); outline-offset: 3px; }"
+    },
+    {
+      "name": "Record Chip and Map Tag",
+      "kind": "chip",
+      "refersTo": "record-chip",
+      "description": "Trail record chip for real records on photos; mono map tags pinned to map corners.",
+      "html": "<div class=\"ds-chips\"><span class=\"ds-chip-record\">1st place</span><span class=\"ds-tag\"><span class=\"ds-tag-dot\"></span>status: live</span><span class=\"ds-tag ds-tag-soft\">grid K-42-04</span></div>",
+      "css": ".ds-chips { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; } .ds-chip-record { display: inline-block; padding: 6px 12px; border-radius: 0; background: var(--trail, #b8352a); color: var(--trail-ink, #ffffff); font-family: 'Golos Text', sans-serif; font-size: 14px; font-weight: 700; } .ds-tag { display: inline-flex; align-items: center; gap: 8px; padding: 4px 8px; border-radius: 0; background: var(--paper-raised, #f3f5ef); color: var(--ink, #1d2420); font-family: 'JetBrains Mono', monospace; font-variant-numeric: tabular-nums lining-nums; font-size: 11px; } .ds-tag-soft { color: var(--ink-soft, #4b564e); } .ds-tag-dot { width: 8px; height: 8px; border-radius: 9999px; background: var(--trail, #b8352a); }"
+    },
+    {
+      "name": "Legend Panel",
+      "kind": "card",
+      "refersTo": "legend-panel",
+      "description": "Raised-paper panel with ink hairlines; each row carries its own map-legend symbol in a cartographic hue.",
+      "html": "<aside class=\"ds-legend\"><h3 class=\"ds-legend-head\">Tech Stack</h3><ul class=\"ds-legend-list\"><li><svg viewBox=\"0 0 24 16\" width=\"24\" height=\"16\" fill=\"none\" stroke=\"currentColor\" class=\"ds-sym-trail\"><path d=\"M2 8h20\" stroke-width=\"2.5\"/></svg>HTML5 / CSS3</li><li><svg viewBox=\"0 0 24 16\" width=\"24\" height=\"16\" fill=\"none\" stroke=\"currentColor\" class=\"ds-sym-water\"><path d=\"M2 5.5h20M2 10.5h20\" stroke-width=\"1.5\"/></svg>JavaScript / TypeScript</li><li><svg viewBox=\"0 0 24 16\" width=\"24\" height=\"16\" fill=\"none\" stroke=\"currentColor\" class=\"ds-sym-contour\"><path d=\"M12 3 17.5 13h-11Z\" stroke-width=\"1.75\" stroke-linejoin=\"round\"/></svg>React.js / Next.js</li></ul></aside>",
+      "css": ".ds-legend { max-width: 420px; border: 1px solid rgb(29 36 32 / 0.3); border-radius: 0; background: var(--paper-raised, #f3f5ef); } .ds-legend-head { margin: 0; padding: 16px 24px; border-bottom: 1px solid rgb(29 36 32 / 0.3); font-family: Unbounded, sans-serif; font-size: 16px; font-weight: 700; color: var(--ink, #1d2420); } .ds-legend-list { list-style: none; margin: 0; padding: 20px 24px; font-family: 'Golos Text', sans-serif; font-size: 15px; font-weight: 500; color: var(--ink, #1d2420); } .ds-legend-list li { display: flex; align-items: center; gap: 12px; padding: 8px 0; } .ds-sym-trail { color: var(--trail, #b8352a); } .ds-sym-water { color: var(--water, #3d6f8e); } .ds-sym-contour { color: var(--contour, #8a5a2b); }"
+    },
+    {
+      "name": "Terminal Readout",
+      "kind": "custom",
+      "refersTo": "terminal-readout",
+      "description": "Hero terminal: prompt in lake blue and trail, stack written as code with contour-brown strings and a blinking block caret.",
+      "html": "<pre class=\"ds-term\"><span class=\"ds-k\">~/tashkent</span> <span class=\"ds-p\">$</span> whoami --stack<span class=\"ds-caret\"></span>\n<span class=\"ds-k\">const</span> stack = [<span class=\"ds-s\">'React'</span>, <span class=\"ds-s\">'Next.js'</span>, <span class=\"ds-s\">'TypeScript'</span>];</pre>",
+      "css": ".ds-term { margin: 0; padding: 12px 16px; border: 1px solid rgb(29 36 32 / 0.2); border-radius: 0; background: var(--paper-raised, #f3f5ef); color: var(--ink, #1d2420); font-family: 'JetBrains Mono', monospace; font-variant-numeric: tabular-nums lining-nums; font-size: 13px; line-height: 1.625; white-space: pre-wrap; } .ds-k { color: var(--water, #3d6f8e); } .ds-p { color: var(--trail, #b8352a); } .ds-s { color: var(--contour, #8a5a2b); } .ds-caret { display: inline-block; width: 0.55ch; height: 1em; margin-left: 2px; transform: translateY(0.12em); background: currentColor; animation: ds-caret 1.05s steps(1) infinite; } @keyframes ds-caret { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } } @media (prefers-reduced-motion: reduce) { .ds-caret { animation: none; } }"
+    },
+    {
+      "name": "Section Heading",
+      "kind": "custom",
+      "refersTo": "waypoint-marker",
+      "description": "Every section title is a waypoint: trail ring (or summit triangle for Contact) before Unbounded headline, optional soft-ink lede.",
+      "html": "<header class=\"ds-sechead\"><h2 class=\"ds-sechead-title\"><span class=\"ds-sechead-mark\"><svg width=\"28\" height=\"28\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><circle cx=\"8\" cy=\"8\" r=\"5.5\" fill=\"var(--paper, #e9ece3)\" stroke=\"currentColor\" stroke-width=\"1.75\"/><circle cx=\"8\" cy=\"8\" r=\"2.5\" fill=\"currentColor\"/></svg></span>Experience &amp; Growth</h2><p class=\"ds-sechead-lede\">One continuous route, newest role at the top.</p></header>",
+      "css": ".ds-sechead { max-width: 48rem; } .ds-sechead-title { display: flex; align-items: center; gap: 16px; margin: 0; font-family: Unbounded, sans-serif; font-size: clamp(2rem, 4.2vw, 3.25rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; color: var(--ink, #1d2420); } .ds-sechead-mark { display: inline-flex; color: var(--trail, #b8352a); } .ds-sechead-lede { margin: 16px 0 0; max-width: 62ch; font-family: 'Golos Text', sans-serif; font-size: 18px; line-height: 1.625; color: var(--ink-soft, #4b564e); }"
+    },
+    {
+      "name": "Docked Elevation Strip",
+      "kind": "custom",
+      "refersTo": "waypoint-marker-reached",
+      "description": "Header strip after the hero: soft-ink route, travelled part in trail, reached waypoints filled, a haloed you-are-here dot.",
+      "html": "<div class=\"ds-dock\"><span class=\"ds-dock-label\">You are here: <b>Experience</b></span><svg class=\"ds-dock-svg\" viewBox=\"0 0 1000 40\" preserveAspectRatio=\"none\"><path d=\"M0 35 L200 31 L400 27 L600 22 L800 14 L1000 6\" fill=\"none\" stroke=\"var(--ink-soft, #4b564e)\" stroke-width=\"1.5\" vector-effect=\"non-scaling-stroke\"/><path d=\"M0 35 L200 31 L400 27 L440 26\" fill=\"none\" stroke=\"var(--trail, #b8352a)\" stroke-width=\"2.5\" vector-effect=\"non-scaling-stroke\"/></svg></div>",
+      "css": ".ds-dock { display: flex; align-items: center; gap: 16px; padding: 6px 20px; border-top: 1px solid var(--rule, rgb(29 36 32 / 0.14)); background: var(--paper, #e9ece3); } .ds-dock-label { flex-shrink: 0; font-family: 'Golos Text', sans-serif; font-size: 12px; font-weight: 500; color: var(--ink-soft, #4b564e); } .ds-dock-label b { font-weight: 600; color: var(--ink, #1d2420); } .ds-dock-svg { flex: 1; height: 28px; overflow: visible; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Survey Sheet in a GIS Tool",
+    "overview": "The whole site is one topographic map sheet of the Chatkal range, opened in a developer's mapping tool. Ground is survey paper (sage-grey by day, spruce ink by night) under a faint 96px survey grid; brown contour linework carries the terrain; one red trail line carries the route and every action; lake blue carries water, focus and code keywords. The career is read as an ascent: an elevation profile is the page spine, sections are waypoints, and Contact is the summit.\n\nTwo typographic registers run the map. Unbounded is the map title lettering (names, section titles, big figures). Golos Text is everything read. JetBrains Mono appears only where a GIS tool would print data: coordinates, dates, stack arrays, hosts, scales, the hero's terminal lines. Density is editorial and generous: long single-column runs, 12-column splits, no card grids.\n\nDepth is paper, not glass. Surfaces are flat sheets separated by hairline ink rules and a slightly raised paper tone; the few shadows belong to objects lifted off the sheet. The confirmed anti-reference is the dark-zinc developer hero with a portrait card and a row of equal cards.",
+    "keyCharacteristics": [
+      "Map-sheet ground with a 96px survey grid and neatline frames carrying marginalia (sheet number, coordinates) on the frame line.",
+      "One red trail: route lines, primary actions, active states, summit and waypoint marks, selection.",
+      "Contour fields drawn deterministically in contour brown; index contours heavier, every fifth ring.",
+      "Square corners everywhere; only waypoint markers and the \"you are here\" dot are round.",
+      "Monospace for data only, always with tabular lining figures.",
+      "Motion that draws the map: trail draws, contours draw outward, the route grows with scroll, figures count up; nothing bounces."
+    ],
+    "rules": [
+      {
+        "name": "The One Trail Rule",
+        "body": "Red is the route and the way forward. It marks the path, the current position, the summit and the action, and is never used as a decorative fill or a second accent.",
+        "section": "colors"
+      },
+      {
+        "name": "The Cartographic Roles Rule",
+        "body": "Brown is terrain, blue is water and instrumentation, red is the route. A new element takes the hue of the thing it represents on a map, never a hue chosen for variety.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ink Border Rule",
+        "body": "Borders are map ink at reduced opacity or the rule hairline. No independent grey border colors.",
+        "section": "colors"
+      },
+      {
+        "name": "The Data-Only Mono Rule",
+        "body": "JetBrains Mono is reserved for what a mapping tool would print: coordinates, dates, periods, stack arrays written as code (`['React', 'Next.js']`), hosts, grid references, scales, the terminal prompt. Prose, labels and navigation never use it.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Figures Rule",
+        "body": "Every elevation, date, coordinate, phone number and stat carries `tabular-nums lining-nums`.",
+        "section": "typography"
+      },
+      {
+        "name": "The Paper Not Glass Rule",
+        "body": "Panels, bands, timelines and photos are flat and bordered. A shadow means the object sits on top of the map; if it is part of the map, it gets a hairline instead.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do put new sections on the route: a waypoint ring (or summit triangle for the final action) before every section title in trail red.",
+      "Do give every new element its cartographic hue: red for route and action, blue for water and instrumentation, brown for terrain.",
+      "Do write stacks and technical lists as code in JetBrains Mono 13px, with lake-blue keywords and contour-brown string literals.",
+      "Do separate surfaces with ink hairlines (20 to 40%) or the rule, and alternate paper and raised-paper bands for long sections.",
+      "Do keep corners square; reserve round shapes for waypoint markers and position dots.",
+      "Do carry map marginalia (sheet number, coordinates) on frame lines and map corners as mono data.",
+      "Do keep every animation's resting state visible and honor reduced motion with the final state."
+    ],
+    "donts": [
+      "Don't build the dark-zinc developer hero with a portrait card, or rows of equal cards.",
+      "Don't use JetBrains Mono for prose, labels or navigation.",
+      "Don't introduce a second accent or use trail red as a decorative fill.",
+      "Don't add shadows to panels, bands, timelines or photos; shadows are for objects lifted off the sheet.",
+      "Don't let animation bounce or overshoot."
+    ]
+  }
+}

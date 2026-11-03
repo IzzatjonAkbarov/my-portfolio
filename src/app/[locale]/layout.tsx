@@ -2,7 +2,7 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { ThemeProvider } from 'next-themes';
-import { Inter } from 'next/font/google';
+import { Unbounded, Golos_Text, JetBrains_Mono } from 'next/font/google';
 import AgentEmbed from '@/components/AgentEmbed';
 import { routing } from '@/i18n/routing';
 import type { Metadata, Viewport } from 'next';
@@ -63,16 +63,29 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#09090b' },
+    { media: '(prefers-color-scheme: light)', color: '#e9ece3' },
+    { media: '(prefers-color-scheme: dark)', color: '#121815' },
   ],
   width: 'device-width',
   initialScale: 1,
 };
 
-const inter = Inter({
+const display = Unbounded({
   subsets: ['latin', 'cyrillic'],
-  variable: '--font-sans',
+  weight: ['500', '700', '800'],
+  variable: '--font-display',
+});
+
+const body = Golos_Text({
+  subsets: ['latin', 'cyrillic'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-body',
+});
+
+const mono = JetBrains_Mono({
+  subsets: ['latin', 'cyrillic'],
+  weight: ['400', '500', '700'],
+  variable: '--font-code',
 });
 
 export default async function LocaleLayout({
@@ -90,7 +103,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${inter.variable}`} suppressHydrationWarning>
+    <html lang={locale} className={`${display.variable} ${body.variable} ${mono.variable}`} suppressHydrationWarning>
       <body className="min-h-screen bg-background font-sans antialiased" suppressHydrationWarning>
         <ThemeProvider
           attribute="class"

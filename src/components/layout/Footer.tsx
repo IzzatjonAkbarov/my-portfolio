@@ -1,47 +1,37 @@
-'use client';
-
 import { useTranslations } from 'next-intl';
-import { Code2, Globe, Send, Terminal } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import Logo from '@/components/Logo';
-
-const socialLinks = [
-  { icon: Code2, href: 'https://github.com/IzzatjonAkbarov', label: 'GitHub' },
-  { icon: Globe, href: 'https://www.linkedin.com/in/izzatjon-akbarov-ba7254348/', label: 'LinkedIn' },
-  { icon: Terminal, href: 'https://leetcode.com/u/izzatjonakbarov/', label: 'LeetCode' },
-  { icon: Send, href: 'https://t.me/akbrvi', label: 'Telegram' },
-];
+import { profileLinks } from '@/lib/profiles';
 
 export default function Footer() {
   const t = useTranslations('Footer');
 
   return (
-    <footer className="border-t border-border/40 bg-background py-8">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-          {/* Brand & Copyright */}
-          <div className="flex items-center gap-2">
-            <Logo size="sm" />
-            <p className="text-xs text-muted-foreground">
-              © {new Date().getFullYear()} Izzatjon Akbarov. {t('rights')}
-            </p>
-          </div>
+    <footer className="border-t-2 border-ink px-4 py-10 sm:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex items-center gap-3">
+          <Logo size="sm" />
+          <p className="text-sm text-ink-soft">
+            © <span className="figures">{new Date().getFullYear()}</span> Izzatjon Akbarov. {t('rights')}
+          </p>
+        </div>
 
-          {/* Social Links */}
-          <div className="flex items-center gap-2">
-            {socialLinks.map((social) => (
+        <ul className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+          {profileLinks.map((p) => (
+            <li key={p.label}>
               <a
-                key={social.label}
-                href={social.href}
+                href={p.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={social.label}
-                className="flex size-8 items-center justify-center rounded-md text-muted-foreground border border-transparent hover:border-border hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-foreground transition-all"
+                className="inline-flex items-center gap-0.5 font-medium text-ink hover:text-trail hover:underline"
               >
-                <social.icon className="size-4" />
+                {p.label}
+                <ArrowUpRight className="size-3.5" />
               </a>
-            ))}
-          </div>
-        </div>
+            </li>
+          ))}
+          <li className="figures font-mono text-[13px] text-ink-soft">41°18′N 69°14′E</li>
+        </ul>
       </div>
     </footer>
   );
