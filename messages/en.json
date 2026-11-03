@@ -5,16 +5,21 @@
     "experience": "Experience",
     "projects": "Projects",
     "fun": "Passions",
-    "contact": "Contact"
+    "contact": "Contact",
+    "menu": "Menu",
+    "youAreHere": "You are here"
   },
   "Hero": {
     "greeting": "Hello, I'm",
     "name": "Izzatjon Akbarov",
     "title": "Frontend Developer",
-    "summary": "Frontend Developer specializing in building high-performance, scalable web applications with React.js, Next.js, and TypeScript. Passionate about clean code, modern UI systems, and seamless user experiences.",
+    "summary": "I build role-based ERP and LMS dashboards in React, Next.js and TypeScript. EduCoin is live at educoinapp.uz.",
     "downloadCV": "Download CV",
     "contactMe": "Get In Touch",
-    "role": "Frontend Developer"
+    "role": "Frontend Developer",
+    "sheet": "Sheet K-42 · Tashkent",
+    "profiles": "Profiles",
+    "portraitAlt": "Portrait of Izzatjon Akbarov"
   },
   "About": {
     "title": "About Me",
@@ -45,6 +50,13 @@
       "description": "Developed a gamified Learning Management System with custom reward logic, role-based authentication, and accessible UI using Shadcn UI and Zustand.",
       "pages": "Admin, CEO, Teacher, Student Dashboards"
     },
+    "exp3": {
+      "company": "Habsida Academy (habsida.com)",
+      "role": "Frontend Support Teacher & Mentor",
+      "period": "Jul 2026 — Present",
+      "description": "Mentoring Uzbek students in South Korea on modern Web Basics, deep JavaScript, and algorithmic problem-solving. Conducting interactive Q&A checks at the beginning of each session, guiding practical HTML/CSS/JS projects, and solving LeetCode algorithm problems to build strong developer logic.",
+      "pages": "Web Basics, JavaScript & LeetCode Modules"
+    },
     "edu1": {
       "institution": "Najot Ta'lim",
       "degree": "Frontend Development Intensive Bootcamp",
@@ -71,7 +83,17 @@
       }
     },
     "viewProject": "Live Preview",
-    "viewCode": "Source Code"
+    "viewCode": "Source Code",
+    "stack": "Stack",
+    "educoin": {
+      "name": "EduCoin LMS & Gamification Platform",
+      "description": "A learning management system with gamification and role-based access for Admin, Teacher and Student, live at educoinapp.uz.",
+      "features": {
+        "roles": "Role-based dashboards for Admin, Teacher, CEO and Student",
+        "points": "Gamified learning points and reward tracking",
+        "analytics": "Interactive analytics and student progress monitoring"
+      }
+    }
   },
   "Fun": {
     "sectionTitle": "Passions & Mountaineering",
@@ -83,28 +105,76 @@
       "shortDesc": "Won 1st Place overall in the 5km race at the NewUU x ADM Annual Run 2026, earning the official winner trophy and certificate.",
       "p1": "Competing in the New Uzbekistan Annual Run 2026 was a defining athletic milestone. With hundreds of competitive runners from across the country, the atmosphere at New Uzbekistan Park was incredible.",
       "p2": "Maintaining an aggressive pace throughout the 5km course, I crossed the finish line under 20 minutes, securing 1st Place overall in the tournament.",
-      "p3": "Receiving the official Winner Certificate and award framed at the podium was a proud reward for months of disciplined morning track training."
+      "p3": "Receiving the official Winner Certificate and award framed at the podium was a proud reward for months of disciplined morning track training.",
+      "badge": "1st place",
+      "place": "New Uzbekistan Park, Tashkent",
+      "v": {
+        "distance": "5 km",
+        "result": "1st place overall",
+        "time": "under 20:00",
+        "award": "Official certificate"
+      }
     },
     "bukhara": {
       "title": "Bukhara Night Race 2025",
       "subtitle": "10km Night Marathon",
       "shortDesc": "Completed the 10km distance through the illuminated Silk Road ancient monuments of historic Bukhara.",
       "p1": "Running the Bukhara Night Race was an unforgettable cultural and sporting event. The route wove through centuries-old madrasahs and ancient minarets bathed in glowing lights.",
-      "p2": "Finished the 10km marathon with strong endurance alongside running enthusiasts, earning the official Bukhara Night Race finisher medal."
+      "p2": "Finished the 10km marathon with strong endurance alongside running enthusiasts, earning the official Bukhara Night Race finisher medal.",
+      "badge": "10 km medal",
+      "place": "Old city, Bukhara",
+      "v": {
+        "distance": "10 km",
+        "format": "Night race",
+        "location": "Old Bukhara",
+        "status": "Finisher medal"
+      }
     },
     "bigChimgan": {
-      "title": "Big Chimgan Summit (3,309m)",
+      "title": "Big Chimgan Summit",
       "subtitle": "Highest Peak in Tashkent Region",
       "shortDesc": "Summited Big Chimgan Peak (Katta Chimyon) at 3,309 meters elevation in the Chatkal mountain range.",
       "p1": "Scaling Big Chimgan Peak (3,309m elevation) is considered the ultimate high-altitude test for mountaineers in Tashkent. The ascent requires navigating steep rock scrambles and alpine ridges.",
-      "p2": "Reaching the metallic summit triangulation frame above the clouds and waving the national flag was a surreal, exhilarating accomplishment."
+      "p2": "Reaching the metallic summit triangulation frame above the clouds and waving the national flag was a surreal, exhilarating accomplishment.",
+      "badge": "3,309 m summit",
+      "place": "Chatkal range, Bostanliq",
+      "v": {
+        "elevation": "3,309 m",
+        "mountain": "Big Chimgan",
+        "terrain": "Scramble ridge",
+        "status": "Summited"
+      }
     },
     "begiztash": {
-      "title": "Begiztash Peak Summit (2,025m)",
+      "title": "Begiztash Peak Summit",
       "subtitle": "Winter High Altitude Trek",
       "shortDesc": "Challenging winter ascent to Begiztash Peak at 2,025m altitude through sub-zero snow and icy mountain ridges.",
       "p1": "Begiztash Peak (Height: 2,025m) provided a rugged winter trekking adventure. Navigating deep powder snow and icy ridge winds demanded absolute mental resilience.",
-      "p2": "Posing at the summit marker with the mountain expanse stretching across the horizon was proof that determination conquers every slope."
+      "p2": "Posing at the summit marker with the mountain expanse stretching across the horizon was proof that determination conquers every slope.",
+      "badge": "2,025 m winter summit",
+      "place": "Western Tien Shan",
+      "v": {
+        "elevation": "2,025 m",
+        "season": "Winter trek",
+        "conditions": "Sub-zero snow",
+        "status": "Summited"
+      }
+    },
+    "storyTitle": "The story",
+    "close": "Close",
+    "labels": {
+      "distance": "Distance",
+      "result": "Result",
+      "time": "Time",
+      "award": "Award",
+      "format": "Format",
+      "location": "Location",
+      "status": "Status",
+      "elevation": "Elevation",
+      "mountain": "Mountain",
+      "terrain": "Terrain",
+      "season": "Season",
+      "conditions": "Conditions"
     }
   },
   "Contact": {
@@ -115,7 +185,7 @@
     "phoneLabel": "Phone Number",
     "messageLabel": "Your Message",
     "namePlaceholder": "Enter your full name",
-    "emailPlaceholder": "iadevcdr@gmail.com",
+    "emailPlaceholder": "name@company.uz",
     "phonePlaceholder": "90 123 45 67",
     "messagePlaceholder": "How can I help you?",
     "send": "Send Message",
@@ -123,7 +193,22 @@
     "phone": "Phone",
     "email": "Email",
     "location": "Location",
-    "social": "Social Media"
+    "social": "Social Media",
+    "sending": "Sending…",
+    "failMessage": "The message didn't go through. Try again, or write to me on Telegram.",
+    "telegram": "Telegram",
+    "direct": "Direct lines",
+    "optional": "optional",
+    "errors": {
+      "nameRequired": "Enter your name.",
+      "nameShort": "Name needs at least 2 characters.",
+      "emailRequired": "Enter your email address.",
+      "emailInvalid": "That email doesn't look right. Check it for typos.",
+      "phoneInvalid": "Phone number needs 7 to 15 digits.",
+      "messageRequired": "Write a message.",
+      "messageShort": "Message needs at least 10 characters."
+    },
+    "locationValue": "Tashkent, Uzbekistan"
   },
   "Footer": {
     "rights": "All rights reserved.",

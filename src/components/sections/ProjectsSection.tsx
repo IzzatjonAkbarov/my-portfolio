@@ -1,48 +1,32 @@
-'use client';
-
-import { useRef } from 'react';
 import { useTranslations } from 'next-intl';
-import { motion, useInView, Variants } from 'framer-motion';
-import { ExternalLink, Code2, CheckCircle2, Layers } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
-
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08 },
-  },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 15 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
-  },
-};
+import { ArrowUpRight } from 'lucide-react';
+import SectionHeading from '@/components/map/SectionHeading';
+import ContourField from '@/components/map/ContourField';
+import { SummitMark } from '@/components/map/Markers';
+import { cn } from '@/lib/utils';
+import Reveal from '@/components/motion/Reveal';
 
 export default function ProjectsSection() {
   const t = useTranslations('Projects');
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   const projects = [
     {
-      name: 'EduCoin LMS & Gamification Platform',
-      description: 'Comprehensive Learning Management System with gamification features, role-based access for Admin, Teacher, and Students, deployed live at EduCoin App.',
+      name: t('educoin.name'),
+      host: 'educoinapp.uz',
+      description: t('educoin.description'),
       features: [
-        'Role-based Dashboards (Admin, Teacher, CEO, Student)',
-        'Gamified learning points & reward tracking',
-        'Interactive analytics & student progress monitoring',
+        t('educoin.features.roles'),
+        t('educoin.features.points'),
+        t('educoin.features.analytics'),
       ],
       tech: ['Next.js', 'TypeScript', 'Shadcn UI', 'Tailwind CSS', 'Zustand', 'Recharts'],
       liveUrl: 'https://educoinapp.uz/login',
       sourceUrl: 'https://github.com/IzzatjonAkbarov',
+      seed: 4.1,
     },
     {
       name: t('chatty.name'),
+      host: 'Chatty',
       description: t('chatty.description'),
       features: [
         t('chatty.features.realtime'),
@@ -52,109 +36,101 @@ export default function ProjectsSection() {
       tech: ['React.js', 'DaisyUI', 'Tailwind CSS', 'Zustand', 'WebSocket', 'JWT'],
       liveUrl: 'https://chat-app-vert-sigma-96.vercel.app/',
       sourceUrl: 'https://github.com/IzzatjonAkbarov',
+      seed: 7.6,
     },
   ];
 
   return (
-    <section id="projects" className="relative py-24 border-t border-border/40 bg-transparent">
-      <div ref={ref} className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        {/* Section Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="mb-16 text-center"
-        >
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-border bg-background text-xs font-mono font-medium text-muted-foreground mb-3 hover:border-primary/50 hover:text-foreground transition-colors cursor-default">
-            <span>03</span>
-            <span>/</span>
-            <span>FEATURED WORK</span>
-          </div>
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-foreground">
-            {t('title')}
-          </h2>
-        </motion.div>
+    <section id="projects" className="px-4 py-24 sm:px-8 sm:py-32">
+      <div className="mx-auto max-w-7xl">
+        <SectionHeading title={t('title')} reveal="blur" />
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          className="grid gap-8 sm:grid-cols-1 lg:grid-cols-2"
-        >
-          {projects.map((project, index) => (
-            <motion.div key={index} variants={itemVariants}>
-              <div className="group relative flex flex-col justify-between h-full rounded-2xl border border-border bg-card p-6 md:p-8 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1 shadow-xs">
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-4">
-                    <div className="flex size-9 items-center justify-center rounded-lg bg-zinc-100 dark:bg-zinc-800 text-foreground border border-border">
-                      <Layers className="size-4" />
-                    </div>
-                    <span className="text-xs font-mono text-muted-foreground">
-                      0{index + 1}
+        <div className="mt-16 flex flex-col gap-20 lg:gap-28">
+          {projects.map((project, i) => (
+            <article key={project.name} className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
+              <div className={cn('lg:col-span-5', i % 2 === 1 && 'lg:order-2')}>
+                <div className="group relative aspect-[5/4] overflow-hidden border border-ink/30 bg-paper-raised">
+                  <ContourField
+                    className="absolute -inset-[15%] size-[130%] transition-transform duration-[1.4s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-6 group-hover:scale-105"
+                    rings={15}
+                    inner={22}
+                    step={19}
+                    seed={project.seed}
+                    draw
+                  />
+                  <p className="absolute left-3 top-3 flex items-center gap-2 bg-paper-raised/90 px-2 py-1 font-mono text-[11px] text-ink">
+                    <span className="relative flex size-2">
+                      <span className="absolute inset-0 animate-ping rounded-full bg-trail/60 motion-reduce:hidden" />
+                      <span className="relative size-2 rounded-full bg-trail" />
                     </span>
-                  </div>
-
-                  <h3 className="text-xl font-bold text-foreground mb-2">
-                    {project.name}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-muted-foreground mb-6">
-                    {project.description}
+                    status: live
                   </p>
-
-                  {/* Features */}
-                  <div className="flex flex-col gap-2 mb-6">
-                    {project.features.map((feature, fIndex) => (
-                      <div
-                        key={fIndex}
-                        className="flex items-start gap-2 text-xs text-muted-foreground"
-                      >
-                        <CheckCircle2 className="mt-0.5 size-3.5 shrink-0 text-foreground" />
-                        <span>{feature}</span>
-                      </div>
-                    ))}
+                  <p className="figures absolute right-3 top-3 bg-paper-raised/90 px-2 py-1 font-mono text-[11px] text-ink-soft">
+                    grid {i === 0 ? 'K-42-04' : 'K-42-07'}
+                  </p>
+                  <div className="absolute bottom-3 right-3 flex items-end gap-2 bg-paper-raised/90 px-2 py-1 font-mono text-[11px] text-ink-soft" aria-hidden="true">
+                    <span className="flex h-1.5 w-16 border border-ink/50">
+                      <span className="w-1/2 bg-ink/60" />
+                    </span>
+                    1:25k
                   </div>
-                </div>
-
-                <div>
-                  {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-1.5 mb-6 pt-4 border-t border-border/50">
-                    {project.tech.map((tech) => (
-                      <Badge
-                        key={tech}
-                        variant="secondary"
-                        className="text-xs px-2.5 py-0.5 rounded-md font-mono"
-                      >
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="flex items-center gap-3">
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center rounded-full bg-zinc-900 text-zinc-50 dark:bg-zinc-50 dark:text-zinc-900 px-4 py-2 text-xs font-medium transition-all hover:bg-zinc-800 dark:hover:bg-zinc-200 shadow-xs gap-1.5"
-                    >
-                      <ExternalLink className="size-3.5" />
-                      <span>{t('viewProject')}</span>
-                    </a>
-                    <a
-                      href={project.sourceUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center rounded-full border border-border bg-background px-4 py-2 text-xs font-medium text-foreground transition-all hover:bg-zinc-100 dark:hover:bg-zinc-900 gap-1.5"
-                    >
-                      <Code2 className="size-3.5 text-muted-foreground" />
-                      <span>{t('viewCode')}</span>
-                    </a>
+                  <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-2">
+                    <SummitMark className="size-7 text-trail" />
+                    <span className="bg-paper-raised px-2 py-0.5 font-mono text-sm font-medium text-ink">{project.host}</span>
                   </div>
                 </div>
               </div>
-            </motion.div>
+
+              <Reveal variant="rise" delay={0.15} className="lg:col-span-7">
+                <h3 className="font-display text-[clamp(1.6rem,2.8vw,2.25rem)] font-bold leading-tight tracking-[-0.015em] text-ink">
+                  {project.name}
+                </h3>
+                <p className="mt-4 max-w-[62ch] text-lg leading-relaxed text-ink-soft">{project.description}</p>
+
+                <ul className="mt-6 flex flex-col gap-2.5">
+                  {project.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-3 text-base text-ink">
+                      <SummitMark className="mt-1 size-3.5 text-contour" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <p className="mt-6 border-t border-rule pt-4 font-mono text-[13px] leading-relaxed text-ink-soft">
+                  <span className="text-water">{t('stack')}</span>: [
+                  {project.tech.map((x, j) => (
+                    <span key={x}>
+                      <span className="text-contour">&apos;{x}&apos;</span>
+                      {j < project.tech.length - 1 && ', '}
+                    </span>
+                  ))}
+                  ]
+                </p>
+
+                <div className="mt-6 flex flex-wrap items-center gap-x-7 gap-y-3">
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/live inline-flex h-11 items-center gap-2 bg-ink px-5 text-[15px] font-semibold text-paper transition-colors hover:bg-trail hover:text-trail-ink"
+                  >
+                    {t('viewProject')}
+                    <ArrowUpRight className="size-4 transition-transform group-hover/live:-translate-y-0.5 group-hover/live:translate-x-0.5" />
+                  </a>
+                  <a
+                    href={project.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-[15px] font-semibold text-ink underline decoration-ink/40 hover:decoration-trail"
+                  >
+                    {t('viewCode')}
+                    <ArrowUpRight className="size-4" />
+                  </a>
+                </div>
+              </Reveal>
+            </article>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

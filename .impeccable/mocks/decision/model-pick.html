@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Chimgan Trail Map — sketch</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;800&family=Golos+Text:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0}
+  body{width:1440px;height:900px;overflow:hidden;background:#e9ece3;color:#1d2420;font-family:'Golos Text',sans-serif;position:relative}
+  svg.topo{position:absolute;inset:0}
+  header{position:relative;display:flex;justify-content:space-between;padding:32px 56px;font-weight:600}
+  nav{display:flex;gap:32px}
+  .title{position:relative;margin:90px 0 0 120px;max-width:760px}
+  .title small{font-family:Unbounded;letter-spacing:.2em;font-size:14px;color:#8a5a2b}
+  h1{font-family:Unbounded;font-weight:800;font-size:96px;line-height:.95;margin:20px 0}
+  p{font-size:20px;line-height:1.5;max-width:600px}
+  .cta{display:inline-block;margin-top:32px;background:#c0392b;color:#fff;padding:18px 28px;font-weight:600;font-size:18px}
+  .profile{position:absolute;left:0;right:0;bottom:0;height:230px}
+</style>
+</head>
+<body>
+<svg class="topo" viewBox="0 0 1440 900" fill="none" stroke="#8a5a2b" stroke-opacity=".35">
+  <path d="M900 120c180-40 360 60 420 200s-60 300-260 320-360-120-380-260 40-220 220-260z"/>
+  <path d="M940 170c140-30 290 50 330 160s-50 240-210 250-290-90-300-200 40-180 180-210z"/>
+  <path d="M980 220c100-20 220 40 250 120s-40 180-160 190-220-70-230-150 40-140 140-160z"/>
+  <path d="M1020 270c70-10 150 30 170 90s-30 120-110 125-150-50-155-105 30-100 95-110z"/>
+  <path d="M1060 320c40-5 90 20 100 55s-20 70-65 72-85-30-88-62 20-60 53-65z"/>
+</svg>
+<header><span>Izzatjon Akbarov</span><nav><span>Route</span><span>Waypoints</span><span>Summits</span><span>Contact</span></nav></header>
+<div class="title">
+  <small>SHEET K-42 · TASHKENT</small>
+  <h1>Izzatjon Akbarov</h1>
+  <p>Frontend Developer. Role-based ERP and LMS dashboards in React, Next.js and TypeScript.</p>
+  <span class="cta">Reach the summit: Contact</span>
+</div>
+<svg class="profile" viewBox="0 0 1440 230" preserveAspectRatio="none">
+  <path d="M0 220 L220 190 L420 160 L640 120 L860 90 L1080 60 L1300 20 L1440 20 L1440 230 L0 230Z" fill="#3d6f8e" fill-opacity=".18"/>
+  <path d="M0 220 L220 190 L420 160 L640 120 L860 90 L1080 60 L1300 20" stroke="#c0392b" stroke-width="4" fill="none"/>
+</svg>
+</body>
+</html>

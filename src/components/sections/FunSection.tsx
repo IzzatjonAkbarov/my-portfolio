@@ -1,361 +1,242 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { motion, useInView, AnimatePresence, Variants } from 'framer-motion';
-import {
-  Mountain,
-  Trophy,
-  Flame,
-  Calendar,
-  MapPin,
-  ArrowRight,
-  X,
-  Medal,
-  Activity,
-  Maximize2,
-} from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08 },
-  },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 15 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
-  },
-};
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, MapPin, X } from 'lucide-react';
+import SectionHeading from '@/components/map/SectionHeading';
+import { SummitMark, WaypointMark } from '@/components/map/Markers';
+import { cn } from '@/lib/utils';
+import Reveal from '@/components/motion/Reveal';
+import CountUp from '@/components/motion/CountUp';
 
 export interface ActivityDetail {
   id: string;
-  titleKey: string;
-  subtitleKey: string;
-  location: string;
+  key: 'newUzbekistan' | 'bukhara' | 'bigChimgan' | 'begiztash';
   date: string;
-  category: 'mountain' | 'marathon';
+  category: 'mountain' | 'race';
   image: string;
   secondaryImage?: string;
-  badgeText: string;
-  stats: { label: string; value: string }[];
-  shortDescKey: string;
-  fullStoryKeys: string[];
+  stats: string[];
+  paragraphs: number;
 }
 
 const activities: ActivityDetail[] = [
   {
     id: 'new-uzbekistan-run',
-    titleKey: 'newUzbekistan.title',
-    subtitleKey: 'newUzbekistan.subtitle',
-    location: 'New Uzbekistan Park, Tashkent',
+    key: 'newUzbekistan',
     date: '2026',
-    category: 'marathon',
+    category: 'race',
     image: '/images/activities/new-uzbekistan-run-1.jpg',
     secondaryImage: '/images/activities/new-uzbekistan-run-2.jpg',
-    badgeText: '1st Place Champion 🏆',
-    stats: [
-      { label: 'Distance', value: '5 km' },
-      { label: 'Result', value: '1st Place Winner' },
-      { label: 'Time', value: '< 20:00 mins' },
-      { label: 'Award', value: 'Official Certificate' },
-    ],
-    shortDescKey: 'newUzbekistan.shortDesc',
-    fullStoryKeys: [
-      'newUzbekistan.p1',
-      'newUzbekistan.p2',
-      'newUzbekistan.p3',
-    ],
-  },
-  {
-    id: 'bukhara-night-race',
-    titleKey: 'bukhara.title',
-    subtitleKey: 'bukhara.subtitle',
-    location: 'Bukhara Old City, Uzbekistan',
-    date: '2025',
-    category: 'marathon',
-    image: '/images/activities/bukhara-night-race.jpg',
-    badgeText: '10km Finisher Medal 🏅',
-    stats: [
-      { label: 'Distance', value: '10 km' },
-      { label: 'Format', value: 'Night Marathon' },
-      { label: 'Location', value: 'Silk Road Bukhara' },
-      { label: 'Status', value: 'Finisher Medalist' },
-    ],
-    shortDescKey: 'bukhara.shortDesc',
-    fullStoryKeys: [
-      'bukhara.p1',
-      'bukhara.p2',
-    ],
+    stats: ['distance', 'result', 'time', 'award'],
+    paragraphs: 3,
   },
   {
     id: 'big-chimgan-peak',
-    titleKey: 'bigChimgan.title',
-    subtitleKey: 'bigChimgan.subtitle',
-    location: 'Chatkal Range, Bostanlyk',
+    key: 'bigChimgan',
     date: '2025',
     category: 'mountain',
     image: '/images/activities/big-chimgan.jpg',
-    badgeText: '3,309m Summit 🏔️',
-    stats: [
-      { label: 'Elevation', value: '3,309 meters' },
-      { label: 'Mountain', value: 'Great Chimgan' },
-      { label: 'Terrain', value: 'Scramble Ridge' },
-      { label: 'Status', value: 'Summited' },
-    ],
-    shortDescKey: 'bigChimgan.shortDesc',
-    fullStoryKeys: [
-      'bigChimgan.p1',
-      'bigChimgan.p2',
-    ],
+    stats: ['elevation', 'mountain', 'terrain', 'status'],
+    paragraphs: 2,
+  },
+  {
+    id: 'bukhara-night-race',
+    key: 'bukhara',
+    date: '2025',
+    category: 'race',
+    image: '/images/activities/bukhara-night-race.jpg',
+    stats: ['distance', 'format', 'location', 'status'],
+    paragraphs: 2,
   },
   {
     id: 'begiztash-peak',
-    titleKey: 'begiztash.title',
-    subtitleKey: 'begiztash.subtitle',
-    location: 'Western Tien Shan Range',
+    key: 'begiztash',
     date: '2025',
     category: 'mountain',
     image: '/images/activities/begiztash-peak.jpg',
-    badgeText: '2,025m Winter Summit ❄️',
-    stats: [
-      { label: 'Elevation', value: '2,025 meters' },
-      { label: 'Season', value: 'Winter Trek' },
-      { label: 'Conditions', value: 'Sub-zero Snow' },
-      { label: 'Status', value: 'Summited' },
-    ],
-    shortDescKey: 'begiztash.shortDesc',
-    fullStoryKeys: [
-      'begiztash.p1',
-      'begiztash.p2',
-    ],
+    stats: ['elevation', 'season', 'conditions', 'status'],
+    paragraphs: 2,
   },
 ];
 
 export default function FunSection() {
   const t = useTranslations('Fun');
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
-  const [selectedActivity, setSelectedActivity] = useState<ActivityDetail | null>(null);
+  const [selected, setSelected] = useState<ActivityDetail | null>(null);
+  const opener = useRef<HTMLButtonElement | null>(null);
+  const closeBtn = useRef<HTMLButtonElement>(null);
+
+  const open = (act: ActivityDetail, el: HTMLButtonElement) => {
+    opener.current = el;
+    setSelected(act);
+  };
+
+  const close = () => {
+    setSelected(null);
+    opener.current?.focus();
+  };
+
+  useEffect(() => {
+    if (!selected) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    closeBtn.current?.focus();
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && close();
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [selected]);
+
+  const [lead, ...rest] = activities;
+  const leadFigure = (a: ActivityDetail) => t(`${a.key}.v.${a.stats[0]}`);
 
   return (
-    <section id="fun" className="relative py-24 border-t border-border/40 bg-transparent">
-      <div ref={ref} className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        {/* Section Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="mb-16 text-center"
-        >
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-border bg-background text-xs font-mono font-medium text-muted-foreground mb-3">
-            <span>04</span>
-            <span>/</span>
-            <span>PASSIONS & MOUNTAINEERING</span>
-          </div>
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-foreground">
-            {t('sectionTitle')}
-          </h2>
-          <p className="mt-2 text-sm text-muted-foreground max-w-xl mx-auto">
-            {t('sectionSubtitle')}
-          </p>
-        </motion.div>
+    <section id="fun" className="border-y border-rule bg-paper-raised px-4 py-24 sm:px-8 sm:py-32">
+      <div className="mx-auto max-w-7xl">
+        <SectionHeading title={t('sectionTitle')} lede={t('sectionSubtitle')} reveal="clip" />
 
-        {/* Activities Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2"
-        >
-          {activities.map((act) => (
-            <motion.div key={act.id} variants={itemVariants}>
-              <Card className="group relative flex flex-col justify-between overflow-hidden border border-border bg-card hover:border-zinc-400 dark:hover:border-zinc-600 transition-all duration-300 shadow-xs h-full">
-                {/* Card Header Image */}
-                <div className="relative h-64 w-full overflow-hidden bg-zinc-900">
+        <div className="mt-16 grid gap-10 lg:grid-cols-12 lg:gap-12">
+          {/* The winning race leads */}
+          <article className="lg:col-span-7">
+            <Reveal variant="blur" duration={1.1} className="group relative aspect-[4/3] overflow-hidden border border-ink/30">
+              <Image
+                src={lead.image}
+                alt={t(`${lead.key}.title`)}
+                fill
+                sizes="(max-width: 1024px) 100vw, 58vw"
+                className="object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
+              />
+              <span className="absolute left-4 top-4 bg-trail px-3 py-1.5 text-sm font-bold text-trail-ink">
+                {t(`${lead.key}.badge`)}
+              </span>
+            </Reveal>
+            <div className="mt-6 flex flex-wrap items-end justify-between gap-x-8 gap-y-3">
+              <div>
+                <h3 className="font-display text-2xl font-bold leading-tight text-ink sm:text-3xl">
+                  {t(`${lead.key}.title`)}
+                </h3>
+                <p className="mt-2 flex items-center gap-1.5 text-sm text-ink-soft">
+                  <MapPin className="size-4 text-trail" />
+                  {t(`${lead.key}.place`)} · <span className="figures">{lead.date}</span>
+                </p>
+              </div>
+              <CountUp value={leadFigure(lead)} className="figures font-display text-4xl font-bold text-trail sm:text-5xl" />
+            </div>
+            <p className="mt-4 max-w-[62ch] text-base leading-relaxed text-ink">{t(`${lead.key}.shortDesc`)}</p>
+            <StoryButton label={t('readFullStory')} onClick={(el) => open(lead, el)} />
+          </article>
+
+          <div className="flex flex-col divide-y divide-rule border-y border-rule lg:col-span-5">
+            {rest.map((act) => (
+              <Reveal as="article" variant="slide" key={act.id} className="group grid grid-cols-[7.5rem_1fr] gap-5 py-6 sm:grid-cols-[10rem_1fr]">
+                <div className="relative aspect-square overflow-hidden border border-ink/30">
                   <Image
                     src={act.image}
-                    alt={t(act.titleKey)}
+                    alt={t(`${act.key}.title`)}
                     fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                    sizes="160px"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                  
-                  {/* Badge & Category */}
-                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-                    <Badge className="bg-zinc-900/90 backdrop-blur-md text-zinc-50 border border-zinc-700 text-xs font-mono px-3 py-1">
-                      {act.badgeText}
-                    </Badge>
-                    <span className="flex size-8 items-center justify-center rounded-full bg-black/60 backdrop-blur-md text-white border border-white/20">
-                      {act.category === 'mountain' ? (
-                        <Mountain className="size-4 text-emerald-400" />
-                      ) : (
-                        <Flame className="size-4 text-amber-400" />
-                      )}
-                    </span>
-                  </div>
-
-                  {/* Title overlay */}
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-xl font-bold text-white tracking-tight drop-shadow-sm">
-                      {t(act.titleKey)}
-                    </h3>
-                    <p className="text-xs text-zinc-300 font-mono flex items-center gap-1 mt-1">
-                      <MapPin className="size-3 text-emerald-400 shrink-0" />
-                      <span>{act.location}</span>
-                    </p>
-                  </div>
                 </div>
-
-                <CardContent className="flex flex-col justify-between flex-1 p-6 gap-6">
-                  {/* Short Article */}
-                  <p className="text-xs leading-relaxed text-muted-foreground">
-                    {t(act.shortDescKey)}
+                <div className="min-w-0">
+                  <p className="figures flex items-center gap-2 font-display text-2xl font-bold text-trail">
+                    {act.category === 'mountain' ? (
+                      <SummitMark className="size-4" />
+                    ) : (
+                      <WaypointMark className="size-4" active />
+                    )}
+                    <CountUp value={leadFigure(act)} />
                   </p>
-
-                  {/* Key Stats Chips */}
-                  <div className="grid grid-cols-2 gap-2 py-3 border-y border-border/60">
-                    {act.stats.slice(0, 2).map((st) => (
-                      <div key={st.label} className="flex flex-col">
-                        <span className="text-[10px] font-mono uppercase text-muted-foreground">
-                          {st.label}
-                        </span>
-                        <span className="text-xs font-bold text-foreground">
-                          {st.value}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Read Full Story Button */}
-                  <Button
-                    onClick={() => setSelectedActivity(act)}
-                    className="w-full rounded-xl bg-zinc-900 text-zinc-50 dark:bg-zinc-50 dark:text-zinc-900 h-10 px-4 text-xs font-medium transition-all hover:bg-zinc-800 dark:hover:bg-zinc-200 cursor-pointer shadow-xs gap-2 group/btn"
-                  >
-                    <span>{t('readFullStory')}</span>
-                    <ArrowRight className="size-3.5 transition-transform duration-200 group-hover/btn:translate-x-1" />
-                  </Button>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div>
+                  <h3 className="mt-1.5 text-lg font-semibold leading-snug text-ink">{t(`${act.key}.title`)}</h3>
+                  <p className="mt-1 text-sm text-ink-soft">
+                    {t(`${act.key}.place`)} · <span className="figures">{act.date}</span>
+                  </p>
+                  <StoryButton label={t('readFullStory')} onClick={(el) => open(act, el)} compact />
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
       </div>
 
-      {/* Full Detail Modal Overlay */}
       <AnimatePresence>
-        {selectedActivity && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10">
-            {/* Backdrop */}
+        {selected && (
+          <div className="fixed inset-0 z-[60] flex items-center justify-center p-3 sm:p-8">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setSelectedActivity(null)}
-              className="fixed inset-0 bg-black/80 backdrop-blur-md"
+              transition={{ duration: 0.2 }}
+              onClick={close}
+              className="fixed inset-0 bg-[rgb(10_14_12/0.72)]"
             />
-
-            {/* Modal Dialog Card */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="relative z-10 w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl border border-border bg-card text-card-foreground shadow-2xl"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="story-title"
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 16 }}
+              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              className="relative z-10 max-h-[92vh] w-full max-w-3xl overflow-y-auto border border-ink/30 bg-paper text-ink shadow-[0_30px_80px_-30px_rgb(0_0_0/0.7)]"
             >
-              {/* Close Button */}
               <button
-                onClick={() => setSelectedActivity(null)}
-                className="absolute top-4 right-4 z-20 flex size-9 items-center justify-center rounded-full bg-black/70 text-white hover:bg-black transition-colors cursor-pointer border border-white/20"
-                aria-label="Close"
+                ref={closeBtn}
+                type="button"
+                onClick={close}
+                className="absolute right-3 top-3 z-20 grid size-11 place-items-center bg-paper text-ink hover:bg-trail hover:text-trail-ink cursor-pointer"
+                aria-label={t('close')}
               >
                 <X className="size-5" />
               </button>
 
-              {/* Header Cover Image / Carousel */}
-              <div className="relative h-72 sm:h-96 w-full bg-zinc-950">
+              <div className="relative aspect-[16/9] w-full">
                 <Image
-                  src={selectedActivity.secondaryImage || selectedActivity.image}
-                  alt={t(selectedActivity.titleKey)}
+                  src={selected.secondaryImage || selected.image}
+                  alt={t(`${selected.key}.title`)}
                   fill
-                  priority
-                  className="object-cover object-center"
+                  sizes="(max-width: 768px) 100vw, 768px"
+                  className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-
-                <div className="absolute bottom-6 left-6 right-6">
-                  <Badge className="mb-2 bg-emerald-500 text-zinc-950 font-mono font-bold text-xs">
-                    {selectedActivity.badgeText}
-                  </Badge>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
-                    {t(selectedActivity.titleKey)}
-                  </h2>
-                  <p className="text-xs sm:text-sm text-muted-foreground font-mono flex items-center gap-1.5 mt-1">
-                    <MapPin className="size-4 text-emerald-500 shrink-0" />
-                    <span>{selectedActivity.location}</span>
-                    <span>•</span>
-                    <Calendar className="size-4 text-muted-foreground shrink-0" />
-                    <span>{selectedActivity.date}</span>
-                  </p>
-                </div>
               </div>
 
-              {/* Modal Body Content */}
-              <div className="p-6 sm:p-8 flex flex-col gap-6">
-                {/* Stats Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 rounded-2xl border border-border bg-muted/40">
-                  {selectedActivity.stats.map((st) => (
-                    <div key={st.label} className="flex flex-col">
-                      <span className="text-[10px] font-mono uppercase text-muted-foreground">
-                        {st.label}
-                      </span>
-                      <span className="text-sm font-extrabold text-foreground mt-0.5">
-                        {st.value}
-                      </span>
-                    </div>
-                  ))}
+              <div className="flex flex-col gap-7 p-6 sm:p-10">
+                <div>
+                  <h2 id="story-title" className="text-2xl font-bold leading-tight sm:text-3xl">
+                    {t(`${selected.key}.title`)}
+                  </h2>
+                  <p className="mt-2 flex items-center gap-1.5 text-sm text-ink-soft">
+                    <MapPin className="size-4 text-trail" />
+                    {t(`${selected.key}.place`)} · <span className="figures">{selected.date}</span>
+                    <span className="ml-2 bg-trail px-2 py-0.5 text-xs font-bold text-trail-ink">
+                      {t(`${selected.key}.badge`)}
+                    </span>
+                  </p>
                 </div>
 
-                {/* Gallery preview if secondary image exists */}
-                {selectedActivity.secondaryImage && (
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="relative h-44 rounded-xl overflow-hidden border border-border">
-                      <Image
-                        src={selectedActivity.image}
-                        alt="Event view 1"
-                        fill
-                        className="object-cover"
-                      />
+                <dl className="grid grid-cols-2 border-y border-rule sm:grid-cols-4">
+                  {selected.stats.map((s, i) => (
+                    <div key={s} className={cn('py-4 pr-4', i > 0 && 'sm:border-l sm:border-rule sm:pl-4', i === 2 && 'border-t border-rule sm:border-t-0', i === 3 && 'border-t border-rule sm:border-t-0')}>
+                      <dt className="text-xs font-medium text-ink-soft">{t(`labels.${s}`)}</dt>
+                      <dd className="figures mt-1 text-base font-bold text-ink">{t(`${selected.key}.v.${s}`)}</dd>
                     </div>
-                    <div className="relative h-44 rounded-xl overflow-hidden border border-border">
-                      <Image
-                        src={selectedActivity.secondaryImage}
-                        alt="Event view 2"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
+                  ))}
+                </dl>
+
+                {selected.secondaryImage && (
+                  <div className="relative aspect-[16/10] overflow-hidden border border-ink/30">
+                    <Image src={selected.image} alt={t(`${selected.key}.title`)} fill sizes="768px" className="object-cover" />
                   </div>
                 )}
 
-                {/* Article Paragraphs */}
-                <div className="flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
-                  <h4 className="text-base font-bold text-foreground flex items-center gap-2">
-                    <Activity className="size-4 text-emerald-500" />
-                    <span>Story & Experience</span>
-                  </h4>
-                  {selectedActivity.fullStoryKeys.map((key) => (
-                    <p key={key}>{t(key)}</p>
+                <div className="flex flex-col gap-4 text-base leading-relaxed">
+                  <h3 className="font-display text-lg font-bold">{t('storyTitle')}</h3>
+                  {Array.from({ length: selected.paragraphs }, (_, i) => (
+                    <p key={i} className="max-w-[65ch]">{t(`${selected.key}.p${i + 1}`)}</p>
                   ))}
                 </div>
               </div>
@@ -364,5 +245,29 @@ export default function FunSection() {
         )}
       </AnimatePresence>
     </section>
+  );
+}
+
+function StoryButton({
+  label,
+  onClick,
+  compact = false,
+}: {
+  label: string;
+  onClick: (el: HTMLButtonElement) => void;
+  compact?: boolean;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={(e) => onClick(e.currentTarget)}
+      className={cn(
+        'group inline-flex items-center gap-2 font-semibold text-ink underline decoration-ink/40 hover:decoration-trail cursor-pointer',
+        compact ? 'mt-3 text-sm' : 'mt-5 text-[15px]'
+      )}
+    >
+      {label}
+      <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+    </button>
   );
 }

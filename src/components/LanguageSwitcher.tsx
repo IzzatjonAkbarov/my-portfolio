@@ -32,28 +32,28 @@ export default function LanguageSwitcher() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
-        className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 text-xs font-mono font-medium text-foreground hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-all cursor-pointer outline-hidden"
+        className="inline-flex h-10 items-center gap-1.5 border border-rule px-3 text-sm font-semibold text-ink hover:bg-muted transition-colors cursor-pointer"
       >
         <Globe className="size-3.5 text-muted-foreground" />
         <span>{currentLocale.short}</span>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" sideOffset={8} className="w-36 rounded-xl p-1 shadow-lg border-border">
+      <DropdownMenuContent align="end" sideOffset={8} className="w-40 rounded-none border border-ink/30 bg-paper-raised p-1 shadow-[0_12px_30px_-14px_rgb(0_0_0/0.45)]">
         {locales.map((loc) => (
           <DropdownMenuItem
             key={loc.code}
             onClick={() => handleLocaleChange(loc.code)}
             className={cn(
-              'flex items-center justify-between cursor-pointer rounded-lg px-2.5 py-2 text-xs font-medium transition-colors',
+              'flex items-center justify-between cursor-pointer rounded-none px-2.5 py-2.5 text-sm font-medium transition-colors',
               locale === loc.code
-                ? 'bg-zinc-100 dark:bg-zinc-800 text-foreground font-semibold'
-                : 'text-muted-foreground hover:text-foreground'
+                ? 'bg-muted text-ink font-semibold'
+                : 'text-ink-soft hover:text-ink'
             )}
           >
             <div className="flex items-center gap-2">
               <span className="text-sm">{loc.flag}</span>
               <span>{loc.label}</span>
             </div>
-            {locale === loc.code && <Check className="size-3 text-foreground" />}
+            {locale === loc.code && <Check className="size-3.5 text-trail" />}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
